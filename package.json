@@ -1,0 +1,36 @@
+{
+  "name": "booky",
+  "private": true,
+  "description": "New tab page for most modern browsers.",
+  "repository":  "https://github.com/Chromo-lib/booky",
+  "homepage": "https://github.com/Chromo-lib/booky",
+  "bugs": "https://github.com/Chromo-lib/booky",
+  "license": "BSD-3-Clause",
+  "version": "1.0.1",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "chrome": "cp manifest/chrome.json build/manifest.json",
+    "firefox": "cp manifest/firefox.json build/manifest.json",
+    "opera": "cp manifest/opera.json build/manifest.json && cp manifest/background-opera.js build/"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version"
+    ]
+  }
+}
