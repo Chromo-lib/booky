@@ -1,4 +1,6 @@
 :root {
+  --main-color: #242424;
+  --bg-card:#424242;
   --box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.2529175640624825), 0px 0px 2.9px rgba(0, 0, 0, 0.21400716959133134);
 }
 
@@ -19,7 +21,7 @@ body,
   margin: 0;
   min-height: 100vh;
   min-width: 100vw;
-  background-color: #242424;
+  background-color: var(--main-color);
   color: #fff;
 
   display: flex;
@@ -30,6 +32,7 @@ body,
   
   font-weight: 400;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 .container {
@@ -40,17 +43,17 @@ body,
 
 h1 {font-size: 85px; margin:0}
 /**********************/
+.card-container {position: relative;}
 .card {
   width: 120px;
   height: 90px;
-  position: relative;
   font-size: 12px;
   margin: 10px;
   padding:10px;
   letter-spacing: 2px;
   text-transform: capitalize;
   border-radius: 4px;
-  background: #424242;
+  background: var(--bg-card);
   box-shadow: var(--box-shadow);
 }
 
@@ -59,18 +62,38 @@ h1 {font-size: 85px; margin:0}
     margin: 10px;
 }
 
-.card .btn-rm-card {
-  display:none;
+.card-container .btn-context-menu {
+  display: none;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0;
+  right: 0;
+  background-color: #000000b5;
+  border-radius: 50%;
+  padding: 1px 6px;
 }
 
-.card:hover>.btn-rm-card {display:block; }
+.context-menu {
+  display: none;
+  background: var(--bg-card);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  display: block;
+  font-size: 14px;
+  margin-inline-start: 5px;
+  inset-inline-start: 100%;
+  position: absolute;
+  top: 25px;
+  right: -80%;
+  z-index: 1;
+}
 
-.card svg {width: 12px; height: 12px; transition: all .25s;}
+.context-menu ul {list-style: none; padding:0; margin: 0; font-size: 12px;}
+.context-menu li {padding: 5px 12px;}
+.context-menu li:hover {background-color: var(--main-color);}
 
-  .card svg:hover path{fill: red;}
+.card-container:hover>.btn-context-menu {display:block; }
+
+.card-container svg {width: 12px; height: 12px; transition: all .25s;}
 
 a{color: #ffffff; text-decoration: none;}
 /**********************************/
@@ -82,6 +105,7 @@ a{color: #ffffff; text-decoration: none;}
   height: 100%;
   background-color: rgba(0, 0, 0, 0.493);
   border-radius: 4px;
+  z-index: 8;
 }
 
 form {
@@ -130,6 +154,11 @@ button:hover {background-color: rgba(0, 0, 0, 0.199);}
 
 button,label {text-transform: uppercase; letter-spacing: .6px;}
 /*******************************/
+hr {
+  margin: 0;
+  border: 1px solid var(--main-color);
+}
+
 .d-flex {
   display: flex;
   flex-wrap: wrap;
@@ -145,22 +174,30 @@ button,label {text-transform: uppercase; letter-spacing: .6px;}
   align-items: center;
 }
 
+.justify-left {justify-content: flex-start;}
+
 .py-3 {
   padding: 30px;
 }
 
+.m-0 {margin:0}
+.mt-0 {margin-top:0}
 .mr-10 {margin-right: 10px;}
 .ml-10 {margin-left: 10px;}
 .mt-10 {margin-top: 10px;}
 .mb-10 {margin-bottom: 10px;}
 .h-100 {height: 100%;}
 .w-100 {width: 100%;}
+.w-60 {width: 60%;}
 
 .bg-dark {background-color: #5C5C5C;}
 
 .txt-left {text-align: left;}
+.txt-uppercase {text-transform: uppercase;}
 
 .align-start {align-items:flex-start;}
+
+.lsp2 {letter-spacing: 2px;}
 
 .truncate {
   width:100%;

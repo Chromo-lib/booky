@@ -11,11 +11,9 @@ export default function Sidebar ({ children }) {
 
   return (
     <nav className={"nav pr-0 " + (show ? 'nav-open' : '')}>
-
       <div>
         <button className="nav__toggle" onClick={onShow}>{show ? 'X' : '+'}</button>
       </div>
-
       <div className="sidebar-content">{children}</div>
     </nav>
   );

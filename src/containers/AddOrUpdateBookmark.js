@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LocalBookmarks from '../utils/LocalBookmarks';
 
-export default function AddOrUpdateBookmark ({ bkAction, bookmark, onClick,setShowModal }) {
+export default function AddOrUpdateBookmark ({ bkAction, bookmark, onClick, setShowModal }) {
 
   const [state, setState] = useState({ id: '', title: '', url: '', ...bookmark });
 
@@ -21,9 +21,9 @@ export default function AddOrUpdateBookmark ({ bkAction, bookmark, onClick,setSh
     setShowModal(false);
   }
 
-  return (<>    
+  return (<>
     <form onSubmit={bkAction === 'add' ? onAddBookmark : onUpdateBookmark} className="d-flex-col">
-    <h3>{bkAction} bookmark</h3>
+      <h3>{bkAction} bookmark</h3>
       <div className="w-100 d-flex-col align-start mb-10">
         <label htmlFor="title" >Title</label>
         <input type="text" name="title" value={state.title} onChange={onchange} placeholder="Enter title" required />
