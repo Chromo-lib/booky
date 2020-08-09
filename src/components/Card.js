@@ -1,27 +1,26 @@
 import React from 'react';
+import placeImg from '../assets/1.jpg';
 
-const colors = ['dark', 'info', 'danger', 'success', 'secondary', 'primary'];
+let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+// resource://activity-stream/data/content/tippytop/images/facebook-com@2x.png
+let isDev = true;
 
-export default function Card ({ id, title, url }) {
-
-  const onRemoveBookmark = () => {
-    let c = window.confirm("Are you sure you wish to delete this item? " + title);
-    if (c) {
-      window.chrome.bookmarks.remove(id);
-    }
-  }
+export default function Card ({ id, title, url, onClick, onRemoveBookmarks }) {
 
   return (
-    <div className="h-100 card bg-transparent text-center text-white mb-3">
+    <div className="h-100 card d-flex-col" data-id={id}>
 
-      <a href={url} target="_blank" rel="noopener"
-        className="btn btn-link text-white text-decoration-none">
-        <h3 className={"img-url d-flex justify-content-center align-items-center text-break bg-" + colors[colors.length * Math.random() | 0]}>
-          {title}
-        </h3>
-      </a>
+      <img src={
+        isDev
+          ? placeImg
+          : isChrome
+            ? "chrome://favicon/size/48/" + url
+            : "resource://activity-stream/data/content/tippytop/images/" + url
+      }
+        onClick={onClick} alt={title} />
 
-      <span onClick={() => { onRemoveBookmark() }}>x</span>
+      <a href={url} className="truncate">{title}</a>
+      <span className="btn-rm-card" onClick={onRemoveBookmarks}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#fff" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg></span>
     </div>
   );
 }

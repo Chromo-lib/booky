@@ -1,66 +1,70 @@
 import React, { useState, useEffect } from 'react';
+import LocalBookmarks from '../utils/LocalBookmarks';
 import Card from '../components/Card';
-import Sidebar from '../containers/Sidebar';
-import AddBookmark from './AddBookmark';
-import UpdateBookmark from './UpdateBookmark';
+import Modal from '../components/Modal';
+import AddOrUpdateBookmark from './AddOrUpdateBookmark';
 
-import plusImg from '../assets/plus.png';
+import placeImg from '../assets/plus.png';
 
 export default function Bookmarks () {
 
-  const [bookmarks, setBookmarks] = useState([]);
+  const [bookmarks, setBookmarks] = useState(LocalBookmarks.getAll());
   const [bookmark, setBookmark] = useState(null);
+  const [bkAction, setBkAction] = useState('add');
+  const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    let folderBookmarksId = null;
+  const onUpdateBookmark = (bk) => {
+    setBkAction('update');
+    setBookmark(bk);
+    setShowModal(!showModal);
+  }
 
-    function onSearchCreateFolder (results) {
-      if (results.length < 1) {
-        window.chrome.bookmarks.create({ 'title': 'nodemarks' });
-      }
-      else {
-        folderBookmarksId = '' + results[0].id;
-
-        window.chrome.bookmarks.getSubTree(folderBookmarksId, (allBookmarks) => {
-          setBookmarks(allBookmarks[0].children);
-          localStorage.setItem('parent-folder-bookmarks', folderBookmarksId);
-        });
-      }
+  const onRemoveBookmarks = (bk) => {
+    let c = window.confirm("Are you sure you wish to delete this item? " + bk.title);
+    if (c) {
+      LocalBookmarks.remove(bk.id);
+      setBookmarks(LocalBookmarks.getAll());
     }
+  }
 
-    if (window.chrome) {
-      window.chrome.bookmarks.search({ 'title': 'nodemarks' }, onSearchCreateFolder);
-    }
-  }, []);
+  const onShowModal = () => {
+    setShowModal(!showModal);
+  }
 
-  useEffect(() => {
-    let v = bookmarks.slice(0);
-    window.chrome.bookmarks.onCreated.addListener((_, bk) => {
-      console.log(v);
-      console.log(bk);
-      setBookmarks([...bookmarks, bk]);
-    });
-
-    window.chrome.bookmarks.onRemoved.addListener((id) => {
-      let nbookmarks = bookmarks.filter(b => parseInt(b.id, 10) !== parseInt(id, 10));
-      console.log(bookmarks);
-      console.log(nbookmarks);
-      setBookmarks(nbookmarks);
-    });
-  }, []);
+  useEffect(()=>{
+    setBookmarks(LocalBookmarks.getAll());  
+  },[showModal]);
 
   return (
-    <div className="row">
-      {bookmarks.length > 0 && bookmarks.map(b => <div className="col-md-3"
-        onClick={() => { setBookmark(b) }} key={b.id}>
-        <Card title={b.title} url={b.url} id={b.id} />
+    <div className="d-flex">
+
+      {bookmarks.map(b => <div key={b.id}>
+        <Card
+          id={b.id}
+          title={b.title}
+          url={b.url}
+          onClick={() => { onUpdateBookmark(b) }}
+          onRemoveBookmarks={() => { onRemoveBookmarks(b) }}
+        />
       </div>)}
 
-      <div className="col-md-3" onClick={() => { setBookmark(null) }}><Card title={'+'} /></div>
+      <div className="h-100 card d-flex-col" onClick={onShowModal}>
+        <img src={placeImg} alt="" />
+        <span>{'+'}</span>
+      </div>
 
-      <Sidebar>
-        {bookmark ? <UpdateBookmark bookmark={bookmark} /> : <AddBookmark />}
-      </Sidebar>
+      {showModal && <Modal>
+        <AddOrUpdateBookmark
+          bookmark={bookmark}
+          bkAction={bkAction}
+          setShowModal={setShowModal}
+          onClick={() => {
+            setBkAction('add');
+            onShowModal();
+            setBookmark(null);
+          }}
+        />
+      </Modal>}
     </div>
   );
 }
