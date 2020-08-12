@@ -96,6 +96,17 @@ h1 {font-size: 85px; margin:0}
 .card-container svg {width: 12px; height: 12px; transition: all .25s;}
 
 a{color: #ffffff; text-decoration: none;}
+
+.card-cover {
+  background-color: rgba(0, 255, 255, 0) !important;
+  height: 28px;
+  width: 28px;
+  position: absolute;
+  left: 40%;
+  top: 28%;
+  padding:10px;
+  cursor: grab;
+}
 /**********************************/
 .modal {
   position: fixed;
@@ -191,6 +202,7 @@ hr {
 .w-60 {width: 60%;}
 
 .bg-dark {background-color: #5C5C5C;}
+.bg-trans {background-color: #00000033;}
 
 .txt-left {text-align: left;}
 .txt-uppercase {text-transform: uppercase;}

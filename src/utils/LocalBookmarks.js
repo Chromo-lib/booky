@@ -31,7 +31,11 @@ export default class LocalBookmarks {
   }
 
   static getAll () {
-    let bookmarks = localStorage.getItem('bookmarks')
+    let bookmarks = localStorage.getItem('bookmarks');
     return bookmarks ? JSON.parse(localStorage.getItem('bookmarks')) : [];
+  }
+
+  static replace(bookmarks) {
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
 }
