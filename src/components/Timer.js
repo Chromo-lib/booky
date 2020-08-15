@@ -4,18 +4,12 @@ const getD = new Date();
 
 export default function Timer () {
 
-  const [state, setState] = useState({
-    time: getD.toISOString().split('T')[1].slice(0, 8),
-    date: getD.toDateString()
-  });
+  const [state, setState] = useState({ time: getD.toLocaleTimeString(), date: getD.toDateString() });
 
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
-      setState({
-        time: date.toISOString().split('T')[1].slice(0, 8),
-        date: date.toDateString()
-      })
+      setState({ time: date.toLocaleTimeString(), date: date.toDateString() });
     }, 1000);
   }, []);
 

@@ -22,6 +22,9 @@ body,
   min-height: 100vh;
   min-width: 100vw;
   background-color: var(--main-color);
+  background: linear-gradient(135deg,rgba(33,37,41,.93),rgba(33,37,41,.911)),url(../assets/bg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #fff;
 
   display: flex;
@@ -42,6 +45,7 @@ body,
 }
 
 h1 {font-size: 85px; margin:0}
+
 /**********************/
 .card-container {position: relative;}
 .card {
@@ -96,17 +100,6 @@ h1 {font-size: 85px; margin:0}
 .card-container svg {width: 12px; height: 12px; transition: all .25s;}
 
 a{color: #ffffff; text-decoration: none;}
-
-.card-cover {
-  background-color: rgba(0, 255, 255, 0) !important;
-  height: 28px;
-  width: 28px;
-  position: absolute;
-  left: 40%;
-  top: 28%;
-  padding:10px;
-  cursor: grab;
-}
 /**********************************/
 .modal {
   position: fixed;
@@ -119,14 +112,14 @@ a{color: #ffffff; text-decoration: none;}
   z-index: 8;
 }
 
-form {
+.modal form {
   width: 320px;
   background: #424242;
   padding: 20px;
   box-shadow: var(--box-shadow);
 }
 
-form h3 {
+.modal form h3 {
   width: 100%;
   margin-top: 0;
   text-transform: uppercase;
@@ -218,18 +211,11 @@ hr {
   text-overflow: ellipsis;
 }
 /************ Scroll **************/
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1d1e20;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #3f3e3e;
-}
+::-webkit-scrollbar { width: 5px;}
+::-webkit-scrollbar-thumb { background: #1d1e20;}
+::-webkit-scrollbar-thumb:hover { background: #3f3e3e;}
 
 @media screen and (max-width: 600px) {
-  .container {width: 95% !important;}
+  h1 {font-size: 45px;}
+  .container,.w-60 {width: 100% !important;}
 }

@@ -5,14 +5,18 @@ import Modal from '../components/Modal';
 import AddOrUpdateBookmark from './AddOrUpdateBookmark';
 
 import placeImg from '../assets/plus.png';
+import useDnD from '../hooks/useDnD';
 
 export default function Bookmarks () {
 
   const [bookmarks, setBookmarks] = useState(LocalBookmarks.getAll());
   const [bookmark, setBookmark] = useState(null);
   const [bkAction, setBkAction] = useState('add');
+  
   const [showModal, setShowModal] = useState(false);
   const [ctxMenu, setCtxMenu] = useState({ show: false, id: 0 });
+
+  useDnD(bookmarks, setBookmarks);
 
   const onUpdateBookmark = (bk) => {
     setBkAction('update');
@@ -21,7 +25,7 @@ export default function Bookmarks () {
   }
 
   const onRemoveBookmarks = (bk) => {
-    let c = window.confirm("Are you sure you wish to delete this item? " + bk.title);
+    let c = window.confirm("Are you sure you wish to delete? " + bk.title);
     if (c) {
       LocalBookmarks.remove(bk.id);
       setBookmarks(LocalBookmarks.getAll());
@@ -36,61 +40,12 @@ export default function Bookmarks () {
     setBookmarks(LocalBookmarks.getAll());
   }, [showModal]);
 
-  useEffect(() => {
-    let selectedIdx = 0;
-    let replacedElementIndex = 0;
-    let replacedElementElement = null;
-    const listCards = Array.from(document.querySelectorAll('.card-cover'));
-
-    const dragStart = (e) => {
-      e.dataTransfer.dropEffect = "move";
-      selectedIdx = +e.target.id;
-    }
-
-    const dragOver = (e) => {
-      e.preventDefault();
-      replacedElementIndex = +e.target.id;
-      replacedElementElement = e.target;
-      e.target.parentNode.classList.add('bg-trans');
-    }
-
-    const dragEnd = (e) => {
-      e.preventDefault();
-      let bbb = bookmarks.slice(0);
-
-      let tmp = bbb[replacedElementIndex];
-      bbb[replacedElementIndex] = bbb[selectedIdx];
-      bbb[selectedIdx] = tmp;
-
-      LocalBookmarks.replace(bbb);
-      setBookmarks(bbb);
-
-      listCards.forEach(el => {
-        el.parentNode.classList.remove('bg-trans')
-      });
-    }
-
-    listCards.forEach(el => {
-      el.addEventListener('dragstart', dragStart, false);
-      el.addEventListener('dragover', dragOver, false);
-      el.addEventListener('dragend', dragEnd, false);
-    });
-
-    return () => {
-      listCards.forEach(el => {
-        el.removeEventListener('dragstart', dragStart);
-        el.removeEventListener('dragover', dragOver);
-        el.removeEventListener('dragend', dragEnd);
-      });
-    }
-  }, [bookmarks]);
-
   return (
     <div className="d-flex">
 
       <div id="list-cards" className="w-100 d-flex">
-        {bookmarks.map((b, idx) => <div key={b.id} className="card-container">
-          <div className="card-cover" id={idx} draggable={true}></div>
+        {bookmarks.map((b, idx) => <div key={b.id} className="card-container" id={idx} draggable={true}>
+
           <Card id={b.id} title={b.title} url={b.url} />
 
           <span className="btn-context-menu" onClick={() => { setCtxMenu({ id: b.id, show: !ctxMenu.show }) }}>
