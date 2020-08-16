@@ -1,7 +1,7 @@
 .nav {
   height: 100%;
   width: 270px;
-  background: var(--dark);
+  background: inherit;
   position: fixed;
   bottom: 0;
   right: 0;  
