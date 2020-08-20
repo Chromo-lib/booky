@@ -35,7 +35,7 @@ export default class LocalBookmarks {
     return bookmarks ? JSON.parse(localStorage.getItem('bookmarks')) : [];
   }
 
-  static replace(bookmarks) {
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  static replaceAll(newBookmarks) {
+    localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
   }
 }

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-
-const getD = new Date();
+import TimeService from '../services/TimeService';
+import { useStoreState } from 'easy-peasy';
 
 export default function Timer () {
 
-  const [state, setState] = useState({ time: getD.toLocaleTimeString(), date: getD.toDateString() });
-
+  const timeZone = useStoreState(state => state.bkModel.timeZone);
+  const [state, setState] = useState(TimeService.native(timeZone));
+  
   useEffect(() => {
-    setInterval(() => {
-      const date = new Date();
-      setState({ time: date.toLocaleTimeString(), date: date.toDateString() });
-    }, 1000);
-  }, []);
+      setInterval(() => {
+        const { date, time } = TimeService.native(timeZone);
+        setState({ time, date });
+      }, 1000);
+  }, [timeZone]);
 
   return (<>
     {state && <div className="txt-uppercase lsp2">

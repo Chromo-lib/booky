@@ -20,14 +20,14 @@ export default function useDnD (bookmarks, setBookmarks) {
 
     const dragEnd = (e) => {
       e.preventDefault();
-      let bbb = bookmarks.slice(0);
+      let nbk = bookmarks.slice(0);
 
-      let tmp = bbb[replacedElementIndex];
-      bbb[replacedElementIndex] = bbb[selectedIdx];
-      bbb[selectedIdx] = tmp;
+      let tmp = nbk[replacedElementIndex];
+      nbk[replacedElementIndex] = nbk[selectedIdx];
+      nbk[selectedIdx] = tmp;
 
-      LocalBookmarks.replace(bbb);
-      setBookmarks(bbb);
+      LocalBookmarks.replaceAll(nbk);
+      setBookmarks(nbk);
 
       listCards.forEach(el => {
         el.classList.remove('bg-trans')

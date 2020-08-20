@@ -1,0 +1,52 @@
+.card-container {position: relative;}
+.card {
+  width: 120px;
+  height: 90px;
+  font-size: 12px;
+  margin: 10px;
+  padding:10px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  border-radius: 4px;
+  background: var(--light-dark);
+  box-shadow: var(--box-shadow);
+}
+
+.card img,.placeImg {
+    margin: 10px;
+    height: 28px;
+    width: 28px;      
+    object-fit: cover;  
+}
+
+.card-container .btn-context-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--dark-transparent);
+  border-radius: 50%;
+  padding: 1px 6px;
+}
+
+.context-menu {
+  display: none;
+  background: var(--light-dark);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  display: block;
+  font-size: 14px;
+  margin-inline-start: 5px;
+  inset-inline-start: 100%;
+  position: absolute;
+  top: 20px;
+  right: -76%;
+  z-index: 1;
+}
+
+.context-menu ul {list-style: none; padding:0; margin: 0; font-size: 12px;}
+.context-menu li {padding: 5px 12px;}
+
+.card-container:hover>.btn-context-menu {display:block; }
+
+.card-container svg {width: 12px; height: 12px; transition: all .25s;}

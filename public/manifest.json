@@ -4,9 +4,6 @@
     "name": "Booky",
     "description": "New tab page for most modern browsers.",
     "version": "1.0.0",
-    "browser_action": {
-        "default_icon": "./icons/extension-icon.png"
-    },
     "chrome_url_overrides": {
         "newtab": "index.html"
     },
@@ -17,8 +14,8 @@
     },
     "permissions": [
         "activeTab",
-        "bookmarks",
-        "chrome://favicon/*"
+        "chrome://favicon/*",
+        "topSites"
     ],
     "content_security_policy": "script-src 'self'; object-src 'self';"
 }

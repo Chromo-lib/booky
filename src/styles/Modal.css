@@ -1,0 +1,26 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-transparent);
+  border-radius: 4px;
+  z-index: 8;
+}
+
+.modal form {
+  width: 320px;
+  background: var(--light-dark);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.modal form h3 {
+  width: 100%;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* border-bottom: 1px solid #000; */
+  text-align: left;
+}

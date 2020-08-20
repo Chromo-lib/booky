@@ -36,7 +36,7 @@ export default function AddOrUpdateBookmark ({ bkAction, bookmark, onClick, setS
 
       <div className="w-100 d-flex">
         <button type="submit" className="mr-10">{bkAction}</button>
-        <button type="reset" className="bg-dark ml-10" onClick={onClick}>cancel</button>
+        <button type="reset" className="bg-red ml-10" onClick={onClick}>cancel</button>
       </div>
     </form>
   </>);

@@ -1,9 +1,8 @@
 import React from 'react';
-import placeImg from '../assets/1.jpg';
+import '../styles/Card.css';
+import placeImg from '../assets/place.png';
 
 let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-// resource://activity-stream/data/content/tippytop/images/facebook-com@2x.png
-// moz-page-thumb://thumbnails/?url=https%3A%2F%2Fpensive-poincare-29c3c6.netlify.app%2F&revision=2050
 let isDev = true;
 
 export default function Card ({ id, title, url }) {
@@ -14,13 +13,8 @@ export default function Card ({ id, title, url }) {
       <a href={url} className="d-flex-col">
         <img
           alt={title}
-          src={
-            isDev
-              ? placeImg
-              : isChrome
-                ? "chrome://favicon/size/48/" + url
-                : "moz-page-thumb://thumbnails/?url=" + url
-          } />
+          src={isChrome && !isDev ? "chrome://favicon/size/48/" + url : placeImg}
+        />
 
         <span className="truncate">{title}</span>
       </a>

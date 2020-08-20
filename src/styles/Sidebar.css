@@ -1,18 +1,17 @@
 .nav {
   height: 100%;
   width: 270px;
-  background: inherit;
+  background: var(--light-dark);
   position: fixed;
   bottom: 0;
   right: 0;  
+  text-align: left;
   box-shadow: 0 0 3em rgba(0,0,0,.15);
   transform: translateX(100%);
   transition: transform 300ms cubic-bezier(.5, 0, .5, 1);
   z-index: 999;
 }
 
-
-/*******************/
 .nav .sidebar-content {
   width: 100%;
   height: 100%;
@@ -25,7 +24,6 @@
 
 label {
   color: #ffffff;
-  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -34,11 +32,15 @@ label {
   position: absolute;
   top: 4.5em;
   left: 0;
+  background-color: var(--light);
+  color: var(--main-color);
   transform: translateX(-100%);
   padding: 1em .5em;
   border: 0;
   border-radius: .25em 0 0 .25em;
 }
+
+.nav__toggle:hover {background-color: var(--white);}
 
 /* Navigation open styles */
 .nav-open {

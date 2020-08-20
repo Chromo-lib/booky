@@ -1,6 +1,10 @@
 :root {
   --main-color: #242424;
-  --bg-card:#424242;
+  --light-dark:#424242;
+  --dark-transparent:rgba(0, 0, 0, 0.493);
+  --white: #ffffff;
+  --light: #eeeeee;
+  --red:#ff4a4a;
   --box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.25), 0px 0px 2.9px rgba(0, 0, 0, 0.21);
 }
 
@@ -46,87 +50,8 @@ body,
 
 h1 {font-size: 85px; margin:0}
 
-/**********************/
-.card-container {position: relative;}
-.card {
-  width: 120px;
-  height: 90px;
-  font-size: 12px;
-  margin: 10px;
-  padding:10px;
-  letter-spacing: 2px;
-  text-transform: capitalize;
-  border-radius: 4px;
-  background: var(--bg-card);
-  box-shadow: var(--box-shadow);
-}
-
-.card img {
-  max-height: 28px;
-    margin: 10px;
-}
-
-.card-container .btn-context-menu {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #000000b5;
-  border-radius: 50%;
-  padding: 1px 6px;
-}
-
-.context-menu {
-  display: none;
-  background: var(--bg-card);
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2);
-  display: block;
-  font-size: 14px;
-  margin-inline-start: 5px;
-  inset-inline-start: 100%;
-  position: absolute;
-  top: 25px;
-  right: -80%;
-  z-index: 1;
-}
-
-.context-menu ul {list-style: none; padding:0; margin: 0; font-size: 12px;}
-.context-menu li {padding: 5px 12px;}
-.context-menu li:hover {background-color: var(--main-color);}
-
-.card-container:hover>.btn-context-menu {display:block; }
-
-.card-container svg {width: 12px; height: 12px; transition: all .25s;}
-
 a{color: #ffffff; text-decoration: none;}
 /**********************************/
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.493);
-  border-radius: 4px;
-  z-index: 8;
-}
-
-.modal form {
-  width: 320px;
-  background: #424242;
-  padding: 20px;
-  box-shadow: var(--box-shadow);
-}
-
-.modal form h3 {
-  width: 100%;
-  margin-top: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  /* border-bottom: 1px solid #000; */
-  text-align: left;
-}
 
 label {
   display: inline-block;
@@ -150,13 +75,14 @@ button {
     padding: 5px 24px;
     border: 0;
     background: #1A73E8;
-    color: #ffffff;    
-    cursor: pointer;
+    color: #ffffff;        
 }
 
-button:hover {background-color: rgba(0, 0, 0, 0.199);}
+button:hover, li:hover {background-color: var(--dark-transparent);}
 
 button,label {text-transform: uppercase; letter-spacing: .6px;}
+
+button, li {cursor: pointer; transition: background-color 0.25s;}
 /*******************************/
 hr {
   margin: 0;
@@ -194,8 +120,9 @@ hr {
 .w-100 {width: 100%;}
 .w-60 {width: 60%;}
 
-.bg-dark {background-color: #5C5C5C;}
-.bg-trans {background-color: #00000033;}
+.bg-dark {background-color: var(--main-color);}
+.bg-trans {background-color: var(--dark-transparent);}
+.bg-red {background-color: var(--red);}
 
 .txt-left {text-align: left;}
 .txt-center {text-align: center !important;}
@@ -213,8 +140,8 @@ hr {
 }
 /************ Scroll **************/
 ::-webkit-scrollbar { width: 5px;}
-::-webkit-scrollbar-thumb { background: #1d1e20;}
-::-webkit-scrollbar-thumb:hover { background: #3f3e3e;}
+::-webkit-scrollbar-thumb { background: var(--main-color);}
+::-webkit-scrollbar-thumb:hover { background: var(--light-dark);}
 
 @media screen and (max-width: 600px) {
   h1 {font-size: 45px;}
