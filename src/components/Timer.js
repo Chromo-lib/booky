@@ -16,7 +16,7 @@ export default function Timer () {
 
   return (<>
     {state && <div className="txt-uppercase lsp2">
-      <small>{state.date}</small>
+      <small>{new Date(state.date).toDateString()}</small>
       <h1>{state.time}</h1>
     </div>}
   </>);

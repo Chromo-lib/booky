@@ -17,25 +17,11 @@ export default function Bookmarks () {
   const [showModal, setShowModal] = useState(false);
 
   const { bookmarks } = useStoreState(state => state.bkModel);
-  const { setBookmarks, onRemoveBookmark, setTopVisitedSites } =
-    useStoreActions(actions => actions.bkModel);
+  const { setBookmarks, onRemoveBookmark } = useStoreActions(actions => actions.bkModel);
 
   const [ctxMenu, setCtxMenu] = useState({ show: false, id: 0 });
 
   useDnD(bookmarks, setBookmarks);
-
-  useEffect(() => {
-    if (LocalBookmarks.getAll().length < 1) {
-      window.chrome.topSites.get((MostVisitedURL) => {
-        MostVisitedURL = MostVisitedURL.map((m, i) => {
-          m.id = Date.now() + i;
-          return m;
-        });
-
-        setTopVisitedSites(MostVisitedURL);
-      });
-    }
-  }, []);
 
   const onUpdateBookmark = (bk) => {
     setBkAction('update');
@@ -60,13 +46,13 @@ export default function Bookmarks () {
 
           <Card id={b.id} title={b.title} url={b.url} />
 
-          <span className="btn-context-menu" onClick={() => { setCtxMenu({id: b.id, show: !ctxMenu.show}) }}>
+          <span className="btn-context-menu" onClick={() => { setCtxMenu({ id: b.id, show: !ctxMenu.show }) }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
               <path fill="#fff" d="M2 6a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm6 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm6 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2z" />
             </svg>
           </span>
 
-          <div className="context-menu" style={{ display: ctxMenu.show && ctxMenu.id === b.id ? 'block' : 'none' }}>
+          <div className="context-menu" style={{ display: ctxMenu.show && ctxMenu.id === b.id ? 'flex' : 'none' }}>
             <ul className="txt-uppercase lsp2">
               <li className="d-flex justify-left" onClick={() => { onUpdateBookmark(b) }}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#fff" d="M14.354 2.353l-.708-.707a2.007 2.007 0 0 0-2.828 0l-.379.379a.5.5 0 0 0 0 .707l2.829 2.829a.5.5 0 0 0 .707 0l.379-.379a2.008 2.008 0 0 0 0-2.829zM9.732 3.439a.5.5 0 0 0-.707 0L3.246 9.218a1.986 1.986 0 0 0-.452.712l-1.756 4.39A.5.5 0 0 0 1.5 15a.5.5 0 0 0 .188-.037l4.382-1.752a1.966 1.966 0 0 0 .716-.454l5.779-5.778a.5.5 0 0 0 0-.707zM5.161 12.5l-2.549 1.02a.1.1 0 0 1-.13-.13L3.5 10.831a.1.1 0 0 1 .16-.031l1.54 1.535a.1.1 0 0 1-.039.165z" /></svg><span className="ml-10">edit</span></li>
               <hr />

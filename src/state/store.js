@@ -14,15 +14,10 @@ const bkCrud = {
 }
 
 const bkModel = {
-  topVisitedSites: null,
   bookmarks: LocalBookmarks.getAll(),
   bkFormAction: 'add',
   showFormModal: false,
   timeZone: TimeService.getSystemTimeZone(),
-
-  setTopVisitedSites: action((state, topVisitedSites) => {
-    state.topVisitedSites = !topVisitedSites;
-  }),
 
   setBookmarks: action((state, bookmarks) => {
     state.bookmarks = bookmarks;

@@ -8,6 +8,9 @@ import storeModel from './state/store';
 
 import './styles/index.css';
 
+let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+window.chrome = isChrome ? window.chrome : window.browser;
+
 const store = createStore(storeModel);
 
 //* Render

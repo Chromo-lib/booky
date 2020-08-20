@@ -1,9 +1,18 @@
 import React from 'react';
 import '../styles/Card.css';
-import placeImg from '../assets/place.png';
 
 let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-let isDev = true;
+let isDev = false;
+
+function formatURL (url) {
+  try {
+    let urlInfos = new URL(url);
+    url = urlInfos.hostname;
+    return url.slice(url.indexOf('.') + 1);
+  } catch (error) {
+    return 'example.com'
+  }
+}
 
 export default function Card ({ id, title, url }) {
 
@@ -13,7 +22,10 @@ export default function Card ({ id, title, url }) {
       <a href={url} className="d-flex-col">
         <img
           alt={title}
-          src={isChrome && !isDev ? "chrome://favicon/size/48/" + url : placeImg}
+          src={isChrome && !isDev
+            ? "chrome://favicon/size/48/" + url
+            : "https://www.google.com/s2/favicons?sz=64&domain_url=" + formatURL(url)
+          }
         />
 
         <span className="truncate">{title}</span>

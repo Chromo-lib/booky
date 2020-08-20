@@ -7,7 +7,7 @@ export default function FormSearch () {
   }
 
   return (
-    <form className="mb-10" onSubmit={onSearch}>
+    <form className="w-100 mb-10" onSubmit={onSearch}>
       <input className="w-60" type="search" placeholder="Search the web" required />
     </form>
   );

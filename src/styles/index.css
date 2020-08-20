@@ -5,6 +5,7 @@
   --white: #ffffff;
   --light: #eeeeee;
   --red:#ff4a4a;
+  --muted: #dfdfdf;
   --box-shadow: 0px 1.6px 3.6px rgba(0, 0, 0, 0.25), 0px 0px 2.9px rgba(0, 0, 0, 0.21);
 }
 
@@ -26,7 +27,7 @@ body,
   min-height: 100vh;
   min-width: 100vw;
   background-color: var(--main-color);
-  background: linear-gradient(135deg,rgba(33,37,41,.93),rgba(33,37,41,.911)),url(../assets/bg2.jpg);
+  /* background: linear-gradient(135deg,rgba(33,37,41,.93),rgba(33,37,41,.911)),url(../assets/bg2.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
@@ -49,9 +50,29 @@ body,
 }
 
 h1 {font-size: 85px; margin:0}
+h4 {margin-top:0;border-bottom: 1px solid var(--dark-transparent); padding:10px; text-transform: uppercase; letter-spacing: 2px;}
 
 a{color: #ffffff; text-decoration: none;}
+
+/************************************/
+.btn-settings {
+  position: fixed;
+right: 45px;
+top: 20px;
+}
+
+.settings-modal {
+  width: 300px;
+  position: fixed;
+  top: 70px;
+  right: 45px;
+  padding: 10px;
+  background-color: var(--light-dark);
+}
 /**********************************/
+ul {list-style: none; margin:0; padding:0;}
+
+small {color: var(--muted); font-size: 12px;}
 
 label {
   display: inline-block;
@@ -75,7 +96,8 @@ button {
     padding: 5px 24px;
     border: 0;
     background: #1A73E8;
-    color: #ffffff;        
+    color: #ffffff;   
+    outline: none !important;     
 }
 
 button:hover, li:hover {background-color: var(--dark-transparent);}
@@ -83,6 +105,23 @@ button:hover, li:hover {background-color: var(--dark-transparent);}
 button,label {text-transform: uppercase; letter-spacing: .6px;}
 
 button, li {cursor: pointer; transition: background-color 0.25s;}
+
+button,button svg {vertical-align: middle;}
+/******************************/
+.inline-list {
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inline-list li {
+  flex: 1 1 20%; 
+  justify-content: space-between;
+  background-color: var(--dark-transparent); 
+  text-align: left !important; 
+  margin:10px;  
+  padding:15px;
+}
 /*******************************/
 hr {
   margin: 0;
@@ -105,6 +144,8 @@ hr {
 }
 
 .justify-left {justify-content: flex-start;}
+.justify-between {justify-content: space-between;}
+.align-start {justify-content: flex-start;}
 
 .py-3 {
   padding: 30px;
@@ -116,13 +157,19 @@ hr {
 .ml-10 {margin-left: 10px;}
 .mt-10 {margin-top: 10px;}
 .mb-10 {margin-bottom: 10px;}
+.mb-20 {margin-bottom: 20px;}
+
+.vh-90 {height: 90vh;}
 .h-100 {height: 100%;}
+
+.vw-100 {width: 100vw;}
 .w-100 {width: 100%;}
 .w-60 {width: 60%;}
 
 .bg-dark {background-color: var(--main-color);}
 .bg-trans {background-color: var(--dark-transparent);}
 .bg-red {background-color: var(--red);}
+.bg-inherit {background-color: inherit;}
 
 .txt-left {text-align: left;}
 .txt-center {text-align: center !important;}
