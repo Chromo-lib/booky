@@ -14,7 +14,7 @@ export default function News () {
   return (
     <ul className="inline-list">
       {news && news.map(n => <li key={n.guid} className="d-flex-col align-start">
-        <h5 className="mt-0"><a href={n.link}>{n.title}</a></h5>
+        <h5 className="mt-0 lsp2"><a href={n.link}>{n.title}</a></h5>
         <small>{n.pubDate}</small>
       </li>)}
     </ul>

@@ -13,7 +13,7 @@ export default function FormTimeZone () {
 
   return (
     <form onSubmit={onSetZone}>
-      <input type="text" name="timezone" className="w-100 mb-10" placeholder="Africa/Tunis" />
+      <input type="text" name="timezone" className="w-100 mb-10" placeholder="Africa/Tunis, America/New_York" required />
       <button type="submit" className="w-100">change time zone</button>
     </form>
   );

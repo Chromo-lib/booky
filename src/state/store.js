@@ -18,6 +18,7 @@ const bkModel = {
   bkFormAction: 'add',
   showFormModal: false,
   timeZone: TimeService.getSystemTimeZone(),
+  searchEngineName: localStorage.getItem('search-engine') || 'google',
 
   setBookmarks: action((state, bookmarks) => {
     state.bookmarks = bookmarks;
@@ -31,6 +32,11 @@ const bkModel = {
       state.timeZone = nTimeZone;
       localStorage.setItem('time-zone', nTimeZone);
     }
+  }),
+
+  setSearchEngineName: action((state, searchEngine) => {
+    state.searchEngineName = searchEngine;
+    localStorage.setItem('search-engine', searchEngine);
   }),
   ...bkCrud
 };

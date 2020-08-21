@@ -34,9 +34,9 @@ export default function AddOrUpdateBookmark ({ bkAction, bookmark, onClick, setS
         <input type="text" name="url" value={state.url} onChange={onchange} placeholder="Enter url" required />
       </div>
 
-      <div className="w-100 d-flex">
-        <button type="submit" className="mr-10">{bkAction}</button>
-        <button type="reset" className="bg-red ml-10" onClick={onClick}>cancel</button>
+      <div className="w-100 d-flex justify-between">
+        <button type="submit" className="mr-10 col-2">{bkAction}</button>
+        <button type="reset" className="bg-red ml-10 col-2" onClick={onClick}>cancel</button>
       </div>
     </form>
   </>);
