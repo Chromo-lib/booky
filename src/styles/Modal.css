@@ -10,10 +10,10 @@
 }
 
 .modal form {
-  width: 320px;
-  background: var(--light-dark);
+  width: 320px;background: rgba(43, 41, 41, 0.747);
+  backdrop-filter: var(--blur);
   padding: 20px;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--light-box-shad);
 }
 
 .modal form h3 {

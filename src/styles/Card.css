@@ -8,7 +8,8 @@
   letter-spacing: 2px;
   text-transform: capitalize;
   border-radius: 4px;
-  background: var(--light-dark);
+  background: #ececec1c;
+  backdrop-filter: blur(3px);
   box-shadow: var(--box-shadow);
 }
 
@@ -31,7 +32,8 @@
 
 .context-menu {
   display: none;
-  background: var(--light-dark);
+  background: rgba(94, 94, 94, 0.747);
+  backdrop-filter: var(--blur);
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2);
   display: block;

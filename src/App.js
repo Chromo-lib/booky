@@ -3,7 +3,7 @@ import Bookmarks from './containers/Bookmarks';
 import Timer from './components/Timer';
 import FormSearch from './containers/FormSearch';
 import News from './components/News';
-import Settings from './components/Settings';
+import Settings from './components/settings/Settings';
 import Weather from './components/Weather';
 
 export default function App () {
@@ -17,6 +17,5 @@ export default function App () {
       <Settings />
       <Weather />
     </div>
-    <div className="container mb-20"><News /></div>
   </>);
 }

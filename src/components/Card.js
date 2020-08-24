@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Card.css';
 
 let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-let isDev = false;
+let isDev = true;
 
 function formatURL (url) {
   try {
