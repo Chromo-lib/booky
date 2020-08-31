@@ -15,7 +15,8 @@ export default function Weather () {
           .then(module => {
             setIcon(module.default);
           });
-      });
+      })
+      .catch(e=>{});
   }, []);
 
   return (<>

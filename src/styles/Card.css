@@ -1,4 +1,4 @@
-.card-container {position: relative;}
+.card-container {position: relative; }
 .card {
   width: 120px;
   height: 90px;
@@ -23,17 +23,15 @@
 .card-container .btn-context-menu {
   display: none;
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: var(--dark-transparent);
-  border-radius: 50%;
-  padding: 1px 6px;
+  top: 13px;
+  right: 13px;
+  padding: 0 6px;
+  border-radius: 4px;
 }
 
 .context-menu {
   display: none;
-  background: rgba(94, 94, 94, 0.747);
-  backdrop-filter: var(--blur);
+  background-color: var(--main-color);
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2);
   display: block;
@@ -41,14 +39,14 @@
   margin-inline-start: 5px;
   inset-inline-start: 100%;
   position: absolute;
-  top: 20px;
-  right: -76%;
+  top: 30px;
+  right: -70%;
   z-index: 1;
 }
 
 .context-menu ul {list-style: none; padding:0; margin: 0; font-size: 12px;}
 .context-menu li {padding: 5px 12px;}
 
-.card-container:hover>.btn-context-menu {display:block; }
+.card-container:hover>.btn-context-menu {display:block; background-color: var(--dark-transparent); }
 
-.card-container svg {width: 12px; height: 12px; transition: all .25s;}
+.card-container svg {width: 12px; height: 12px; }

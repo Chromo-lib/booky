@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import LocalBookmarks from '../utils/LocalBookmarks';
 
 export default function useDnD (bookmarks, setBookmarks) {
@@ -34,10 +34,16 @@ export default function useDnD (bookmarks, setBookmarks) {
       });
     }
 
+    const drop = (e) => {
+      if (e.preventDefault) { e.preventDefault(); }
+      if (e.stopPropagation) { e.stopPropagation(); }
+    }
+
     listCards.forEach(el => {
       el.addEventListener('dragstart', dragStart, false);
       el.addEventListener('dragover', dragOver, false);
       el.addEventListener('dragend', dragEnd, false);
+      el.addEventListener('drop', drop, false);
     });
 
     return () => {
@@ -45,6 +51,7 @@ export default function useDnD (bookmarks, setBookmarks) {
         el.removeEventListener('dragstart', dragStart);
         el.removeEventListener('dragover', dragOver);
         el.removeEventListener('dragend', dragEnd);
+        el.removeEventListener('drop', drop);
       });
     }
   }, [bookmarks]);

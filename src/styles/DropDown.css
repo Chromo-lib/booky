@@ -1,0 +1,51 @@
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-button {
+  height: 100%;
+  width: 155px;
+  display: inline-flex !important;
+    justify-content: flex-start !important;
+    padding-left: 10px !important;
+  border-radius: 0;
+  background-color: #ffffff;
+  white-space: nowrap;
+}
+
+.dd-button:hover {background-color: #ffffff !important; color: #000000;}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 82%;
+  margin-left: 10px;
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dd-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  padding: 0;
+  margin: 2px 0 0 0;
+  background-color: #ffffff;
+  color: #000000;
+  list-style-type: none;
+  z-index: 9999;
+}
+
+.dd-menu li {
+  display:flex;
+  align-items: center;
+  text-align: left !important;
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}

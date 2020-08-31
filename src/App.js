@@ -2,8 +2,7 @@ import React from 'react';
 import Bookmarks from './containers/Bookmarks';
 import Timer from './components/Timer';
 import FormSearch from './containers/FormSearch';
-import News from './components/News';
-import Settings from './components/settings/Settings';
+import Settings from './containers/settings/Settings';
 import Weather from './components/Weather';
 
 export default function App () {

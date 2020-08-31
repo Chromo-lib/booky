@@ -22,7 +22,7 @@ export default class WeatherService {
       let resp = await fetch(url);
       resp = await resp.json();
 
-      localStorage.setItem('weather', JSON.stringify({ items: resp }));
+      localStorage.setItem('weather', JSON.stringify({ items: resp, date: new Date().toLocaleDateString() }));
 
       return resp;
     } catch (error) {
@@ -30,27 +30,24 @@ export default class WeatherService {
     }
   }
 
-  static async getData (city = 'tunis') {
+  static async getData () {
     let localWeather = localStorage.getItem('weather');
+
     if (localWeather) {
+
       localWeather = JSON.parse(localWeather);
-      if (this.isMidnight()) {
-        return await this.fetchData(city);
+      let lastDay = new Date(localWeather.date).getDay();
+
+      if (lastDay !== new Date().getDay()) {
+        return await this.fetchData(this.getCity());
       }
       else {
         return localWeather.items;
       }
     }
     else {
-      return await this.fetchData(city);
+      return await this.fetchData(this.getCity());
     }
-  }
-
-  static isMidnight () {
-    let now = new Date();
-    return now.getHours() < 1
-      && now.getMinutes() < 1
-      && now.getSeconds() < 5
   }
 
   static getIcon (code) {
@@ -59,5 +56,14 @@ export default class WeatherService {
     } catch (error) {
       return "";
     }
+  }
+
+  static getCity() {
+    let nTimeZone = localStorage.getItem('time-zone');
+    if(nTimeZone) {
+      nTimeZone = nTimeZone.split('/');
+      return nTimeZone ? nTimeZone[1].toLocaleLowerCase() : 'tunis';
+    }
+    else return 'tunis';
   }
 }

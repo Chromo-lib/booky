@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Card.css';
 
 let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-let isDev = true;
+let isDev = false;
 
 function formatURL (url) {
   try {
@@ -19,7 +19,7 @@ export default function Card ({ id, title, url }) {
   return (
     <div className="h-100 card" data-id={id}>
 
-      <a href={url} className="d-flex-col">
+      <a href={url} target="_self" className="d-flex-col">
         <img
           alt={title}
           src={isChrome && !isDev

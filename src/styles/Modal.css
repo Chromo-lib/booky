@@ -6,12 +6,12 @@
   height: 100%;
   background-color: var(--dark-transparent);
   border-radius: 4px;
-  z-index: 8;
+  z-index: 11;
 }
 
 .modal form {
-  width: 320px;background: rgba(43, 41, 41, 0.747);
-  backdrop-filter: var(--blur);
+  width: 320px;
+  background-color: var(--main-color);
   padding: 20px;
   box-shadow: var(--light-box-shad);
 }
