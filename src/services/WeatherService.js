@@ -22,7 +22,9 @@ export default class WeatherService {
       let resp = await fetch(url);
       resp = await resp.json();
 
-      localStorage.setItem('weather', JSON.stringify({ items: resp, date: new Date().toLocaleDateString() }));
+      localStorage.setItem('weather',
+        JSON.stringify({ items: resp, date: new Date().toLocaleDateString() })
+      );
 
       return resp;
     } catch (error) {
@@ -58,9 +60,9 @@ export default class WeatherService {
     }
   }
 
-  static getCity() {
+  static getCity () {
     let nTimeZone = localStorage.getItem('time-zone');
-    if(nTimeZone) {
+    if (nTimeZone) {
       nTimeZone = nTimeZone.split('/');
       return nTimeZone ? nTimeZone[1].toLocaleLowerCase() : 'tunis';
     }

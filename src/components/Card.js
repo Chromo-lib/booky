@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/Card.css';
 
 let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-let isDev = false;
 
 function formatURL (url) {
   try {
@@ -22,7 +21,7 @@ export default function Card ({ id, title, url }) {
       <a href={url} target="_self" className="d-flex-col">
         <img
           alt={title}
-          src={isChrome && !isDev
+          src={isChrome && process.env.NODE_ENV === 'production'
             ? "chrome://favicon/size/48/" + url
             : "https://www.google.com/s2/favicons?sz=64&domain_url=" + formatURL(url)
           }

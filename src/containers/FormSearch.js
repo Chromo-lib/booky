@@ -46,12 +46,12 @@ export default function FormSearch () {
 
       <div className="dropdown">
         <button type="button" className="dd-button" onClick={() => { setShowDrop(!showDrop); }}>
-        <img src={require(`../assets/search/${searchEngineName}.png`)}
+        <img src={`search/${searchEngineName}.png`}
               alt="search engine" width="25" height="25" className="mr-5" /> {searchEngineName}
         </button>
         <ul className="dd-menu" style={{ display: showDrop ? 'block' : 'none' }}>
           {searchEngines.map(s => <li key={s} onClick={() => { onChooseSearchEngine(s); }}>
-            <img src={require(`../assets/search/${s}.png`)}
+            <img src={`search/${s}.png`}
               alt="search engine" width="15" height="15" className="mr-5" /> {s}
           </li>)}
         </ul>

@@ -8,9 +8,12 @@
         "newtab": "index.html"
     },
     "icons": {
-        "16": "./icons/16x16-circle.png",
-        "48": "./icons/48x48-circle.png",
-        "128": "./icons/128x128-circle.png"
+        "16": "./icons/16.png",
+        "32": "./icons/32.png",
+        "48": "./icons/48.png",
+        "64": "./icons/64.png",
+        "128": "./icons/128.png",
+        "256": "./icons/256.png"
     },
     "permissions": [
         "activeTab",

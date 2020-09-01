@@ -1,0 +1,32 @@
+.sc-container {
+  display: block;
+  height: 0;
+  width: 40px;
+}
+
+.sc-switch {
+  height: 8px;
+  width: 100%;
+  background: rgb(196, 199, 201);
+  border-radius: 3px;
+}
+
+.sc-checked {
+  transform: translate(20px, calc(-50% - 4px));
+  background-color: var(--orange);
+}
+
+.sc-unchecked {
+  transform: translate(-1px, calc(-50% - 4px));
+  background-color: rgb(235, 236, 240);
+}
+.sc-checked,
+.sc-unchecked {
+  width: 20px;
+  height: 20px;
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 3px;
+  border-radius: 50%;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
