@@ -21,6 +21,8 @@
   margin-top: 0;
   text-transform: uppercase;
   letter-spacing: 2px;
-  /* border-bottom: 1px solid #000; */
+  border-bottom: 1px solid var(--dark-transparent);
+  padding-bottom: 10px;
+  font-size: 14px;
   text-align: left;
 }
