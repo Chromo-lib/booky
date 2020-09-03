@@ -50,3 +50,5 @@
 .card-container:hover>.btn-context-menu {display:block; background-color: var(--dark-transparent); }
 
 .card-container svg {width: 12px; height: 12px; }
+
+.border-dotted {     border: 1px dotted white; }

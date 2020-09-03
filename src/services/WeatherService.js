@@ -1,4 +1,5 @@
-const API_KEY = '?key=b44cb5395a644ba08fd10946202108';
+// const API_KEY = '?key=b44cb5395a644ba08fd10946202108';
+// 'https://api.weatherapi.com/v1/current.json' + API_KEY + '&q=' + city;
 
 const conditions = [
   { code: 1000, icon: 113 },
@@ -44,22 +45,24 @@ export default class WeatherService {
     }
   }
 
-  //https://pro.openweathermap.org/data/2.5/weather?q=tunis&appid=cdd6336eb33f226c6d28d43f0f337371
   static async fetchData (city = 'tunis') {
     try {
-      const url = 'https://api.weatherapi.com/v1/current.json' + API_KEY + '&q=' + city;
-      let resp = await fetch(url);
-      resp = await resp.json();
+      const API_KEY = '&appid=cdd6336eb33f226c6d28d43f0f337371';
+      const url = `https://pro.openweathermap.org/data/2.5/forecast?q=${city}&units=metric${API_KEY}`;
+      let items = await fetch(url);
+      items = await items.json();
+
+      items = items.list.filter((v, i, a) => a.findIndex(t => (t.dt_txt.slice(0, 10) === v.dt_txt.slice(0, 10))) === i);
 
       localStorage.setItem('weather',
         JSON.stringify({
           city: city.toLowerCase(),
-          items: resp,
+          items,
           date: new Date().toLocaleDateString()
         })
       );
 
-      return resp;
+      return items;
     } catch (error) {
       return null;
     }
