@@ -6,20 +6,16 @@ import Switch from '../../components/Switch';
 
 function SpanIcon ({ title }) {
   return <span className="inline-flex"><svg xmlns="http://www.w3.org/2000/svg" width="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>{title}</span>
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>{title}</span>
 }
 
-export default function Settings () {
+export default function Settings ({ SettingsModel, onSettingsChange }) {
 
   const settingsModalRef = useRef();
   const [show, setShow] = useState(false);
 
   useClickAway(settingsModalRef, setShow);
-
-  const onResetBgImage = (status) => {
-    console.log(status);
-  }
 
   return (<>
     <button onClick={() => { setShow(!show); }} className="btn-settings bg-inherit">
@@ -31,12 +27,26 @@ export default function Settings () {
       <ul>
         <li className="d-flex justify-between">
           <SpanIcon title="Show search bar" />
-          <Switch onchange={onResetBgImage} />
+          <Switch
+            onToggle={() => { onSettingsChange('showSearchBar'); }}
+            status={SettingsModel.showSearchBar}
+          />
         </li>
 
         <li className="d-flex justify-between">
           <SpanIcon title="Show weather" />
-          <Switch onchange={onResetBgImage} />
+          <Switch
+            onToggle={() => { onSettingsChange('showWeather'); }}
+            status={SettingsModel.showWeather}
+          />
+        </li>
+
+        <li className="d-flex justify-between">
+          <SpanIcon title="Show news" />
+          <Switch
+            onToggle={() => { onSettingsChange('showNews'); }}
+            status={SettingsModel.showNews}
+          />
         </li>
       </ul>
 

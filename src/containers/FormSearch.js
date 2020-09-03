@@ -6,13 +6,13 @@ const searchEngines = ['Google', 'Bing', 'Yandex', 'Duckduckgo', 'Yahoo'];
 
 export default function FormSearch () {
 
-  const searchEngineName = useStoreState(state => state.bkModel.searchEngineName);
-  const setSearchEngineName = useStoreActions(actions => actions.bkModel.setSearchEngineName);
+  const searchEngineName = useStoreState(state => state.SettingsModel.searchEngineName);
+  const setSettings = useStoreActions(actions => actions.SettingsModel.setSettings);
   const [inputSearch, setInputSearch] = useState('');
   const [showDrop, setShowDrop] = useState(false);
 
   const onChooseSearchEngine = (sEng) => {
-    setSearchEngineName(sEng);
+    setSettings({ prop: 'searchEngineName', value: sEng });
     setShowDrop(false);
   }
 
@@ -46,8 +46,8 @@ export default function FormSearch () {
 
       <div className="dropdown">
         <button type="button" className="dd-button" onClick={() => { setShowDrop(!showDrop); }}>
-        <img src={`search/${searchEngineName}.png`}
-              alt="search engine" width="25" height="25" className="mr-5" /> {searchEngineName}
+          <img src={`search/${searchEngineName}.png`}
+            alt="search engine" width="25" height="25" className="mr-5" /> {searchEngineName}
         </button>
         <ul className="dd-menu" style={{ display: showDrop ? 'block' : 'none' }}>
           {searchEngines.map(s => <li key={s} onClick={() => { onChooseSearchEngine(s); }}>

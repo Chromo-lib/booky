@@ -1,33 +1,23 @@
 import { action } from 'easy-peasy';
 import LocalBookmarks from '../utils/LocalBookmarks';
-import TimeService from '../services/TimeService';
+import SettingsModel from './SettingsModel';
 
 if (localStorage.getItem('wallpaper')) {
   let wallpaper = localStorage.getItem('wallpaper');
   document.body.style.background = `linear-gradient(135deg,rgb(33 37 41 / 73%),rgb(33 37 41 / 88%)),url(data:image/png;base64,${wallpaper})`;
 }
 
-const settings = {
-  showSearchBar: true,
-  showWeather: true,
-  defaultBackground: true,
-  timeZone: TimeService.getSystemTimeZone(),
-  searchEngineName: localStorage.getItem('search-engine') || 'Google',
+const bkModel = {
+  bookmarks: LocalBookmarks.getAll(),
+  bkFormAction: 'add',
+  showFormModal: false,
 
-  setTimeZone: action((state, nTimeZone) => {
-    if (TimeService.isValidTimeZone()) {
-      state.timeZone = nTimeZone;
-      localStorage.setItem('time-zone', nTimeZone);
-    }
+  setBookmarks: action((state, bookmarks) => {
+    state.bookmarks = bookmarks;
   }),
-
-  setSearchEngineName: action((state, searchEngine) => {
-    state.searchEngineName = searchEngine;
-    localStorage.setItem('search-engine', searchEngine);
+  setShowFormModal: action((state, showFormModal) => {
+    state.showFormModal = !showFormModal;
   }),
-};
-
-const bkCrud = {
   onRemoveBookmark: action((state, bk) => {
     let c = window.confirm("Are you sure you wish to delete? " + bk.title);
     if (c) {
@@ -38,21 +28,6 @@ const bkCrud = {
   }),
 };
 
-const bkModel = {
-  bookmarks: LocalBookmarks.getAll(),
-  bkFormAction: 'add',
-  showFormModal: false,
-  ...settings,
-
-  setBookmarks: action((state, bookmarks) => {
-    state.bookmarks = bookmarks;
-  }),
-  setShowFormModal: action((state, showFormModal) => {
-    state.showFormModal = !showFormModal;
-  }),
-  ...bkCrud
-};
-
-const storeModel = { bkModel };
+const storeModel = { bkModel, SettingsModel };
 
 export default storeModel;

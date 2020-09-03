@@ -1,17 +1,12 @@
 const defaultOptions = {
-  year: 'numeric',
-  month: 'numeric',
-  day: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-hour12: true,
+  year: 'numeric', month: 'numeric', day: 'numeric',
+  hour: 'numeric', minute: 'numeric', second: 'numeric',
+  hour12: false
 };
 
 export default class TimeService {
   static native (zone) {
     try {
-      let nTimeZone = localStorage.getItem('time-zone');
-      if (nTimeZone) { zone = nTimeZone; }
       let options = { timeZone: zone, ...defaultOptions };
       let formatter = new Intl.DateTimeFormat([], options); // => "8/18/2020, 12:56:18 AM"
       formatter = formatter.format(new Date()).split(', '); // => ["8/18/2020, 12:56:18 AM"]

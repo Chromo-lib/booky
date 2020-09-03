@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import WeatherService from '../services/WeatherService';
 
-export default function Weather () {
+function Weather () {
 
   const [weather, setWeather] = useState(null);
   const [icon, setIcon] = useState(null);
@@ -28,3 +28,5 @@ export default function Weather () {
     </div>}
   </>);
 }
+
+export default Weather;

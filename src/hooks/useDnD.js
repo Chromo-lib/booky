@@ -13,7 +13,7 @@ export default function useDnD (bookmarks, setBookmarks) {
       selectedIdx = +e.currentTarget.id;
       e.currentTarget.classList.add('bg-trans');
       if (replacedElement) {
-        replacedElement.classList.remove('light-box-shad');
+        replacedElement.classList.remove('border-dotted');
       }
     }
 
@@ -22,14 +22,14 @@ export default function useDnD (bookmarks, setBookmarks) {
       replacedElementIndex = +e.currentTarget.id;
       replacedElement = e.currentTarget;
       if (replacedElementIndex !== selectedIdx) {
-        replacedElement.classList.add('light-box-shad');
+        replacedElement.classList.add('border-dotted');
       }
     }
 
     const dragLeave = (e) => {
       e.preventDefault();
       if (replacedElementIndex) {
-        replacedElement.classList.remove('light-box-shad');
+        replacedElement.classList.remove('border-dotted');
       }
     }
 
@@ -40,7 +40,7 @@ export default function useDnD (bookmarks, setBookmarks) {
       if (replacedElement) {
 
         e.currentTarget.classList.remove('bg-trans');
-        replacedElement.classList.remove('light-box-shad');
+        replacedElement.classList.remove('border-dotted');
 
         let tmp = nbk[replacedElementIndex];
         nbk[replacedElementIndex] = nbk[selectedIdx];

@@ -2,6 +2,7 @@
   --main-color: #2e2e30;
   --light-dark: #ffffff15;
   --dark-transparent: rgba(0, 0, 0, 0.322);
+  
   --white: #ffffff;
   --light: #eeeeee;
   --black: #000000;
@@ -440,7 +441,7 @@ hr {
   margin: 0 12px;
 }
 
-.light-box-shad { box-shadow: 0 2px 15px rgba(255, 255, 255, 0.226);}
+.border-dotted {     border: 1px dotted white; }
 /************ Scroll **************/
 ::-webkit-scrollbar {
   width: 5px;
@@ -451,7 +452,7 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--light-dark);
+  background: var(--orange);
 }
 
 @media screen and (max-width: 978px) {
@@ -461,15 +462,16 @@ hr {
   .w-60 {
     width: 100% !important;
   }
+  .box {width: 46% !important;}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 678px) {
   h1 {
     font-size: 45px;
   }
 
   .container,
-  .w-50,.w-60 {
+  .box,.w-50,.w-60 {
     width: 100% !important;
   }
 

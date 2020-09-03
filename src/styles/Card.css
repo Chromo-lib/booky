@@ -1,4 +1,4 @@
-.card-container {position: relative; }
+.card-container {position: relative; border: 1px solid transparent;}
 .card {
   width: 120px;
   height: 90px;

@@ -12,7 +12,7 @@ export default function News () {
   }, []);
 
   return (
-    <ul className="row mt-30">
+    <ul className="row w-75 mb-20">
       {news && news.map((n, i) => <li key={'news' + i} className="col-3 box">
         <img
           src={"https://api.faviconkit.com/" + n.data.domain + "/144"}

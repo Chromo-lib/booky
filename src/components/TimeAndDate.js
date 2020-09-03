@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import TimeService from '../services/TimeService';
 import { useStoreState } from 'easy-peasy';
 
-export default function Timer () {
+export default function TimeAndDate () {
 
-  const timeZone = useStoreState(state => state.bkModel.timeZone);
+  const timeZone = useStoreState(state => state.SettingsModel.timeZone);
   const [state, setState] = useState(TimeService.native(timeZone));
-  
+
   useEffect(() => {
-      setInterval(() => {
-        const { date, time } = TimeService.native(timeZone);
-        setState({ time, date });
-      }, 1000*20);
+    const interval = setInterval(() => {
+      const { date, time } = TimeService.native(timeZone);
+      setState({ time, date });
+    }, 1000 * 1);
+
+    return () => clearInterval(interval);
   }, [timeZone]);
 
   return (<>
