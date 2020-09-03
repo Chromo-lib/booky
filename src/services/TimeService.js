@@ -1,7 +1,11 @@
 const defaultOptions = {
-  year: 'numeric', month: 'numeric', day: 'numeric',
-  hour: 'numeric', minute: 'numeric', second: 'numeric',
-  hour12: false
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  //second: 'numeric',
+  hour12: true
 };
 
 export default class TimeService {
@@ -19,9 +23,13 @@ export default class TimeService {
   }
 
   static getSystemTimeZone () {
-    const region1 = new Intl.DateTimeFormat('default');
-    const options1 = region1.resolvedOptions();
-    return options1.timeZone;
+    try {
+      const region1 = new Intl.DateTimeFormat('default');
+      const options1 = region1.resolvedOptions();
+      return options1.timeZone;
+    } catch (error) {
+      return 'Africa/Tunis';
+    }
   }
 
   static isValidTimeZone (tz) {

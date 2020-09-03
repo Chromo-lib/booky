@@ -11,9 +11,13 @@ export default function TimeAndDate () {
     const interval = setInterval(() => {
       const { date, time } = TimeService.native(timeZone);
       setState({ time, date });
-    }, 1000 * 1);
+    }, 1000 * 60);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    setState(TimeService.native(timeZone));
   }, [timeZone]);
 
   return (<>

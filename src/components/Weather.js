@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import WeatherService from '../services/WeatherService';
+import { useStoreState } from 'easy-peasy';
 
 function Weather () {
 
+  const timeZone = useStoreState(state => state.SettingsModel.timeZone);
   const [weather, setWeather] = useState(null);
   const [icon, setIcon] = useState(null);
 
   useEffect(() => {
-    WeatherService.getData()
+    console.log(timeZone);
+    WeatherService.getData(timeZone)
       .then(r => {
         setWeather(r);
         let iconCode = WeatherService.getIcon(r.current.condition.code);
@@ -17,7 +20,7 @@ function Weather () {
           });
       })
       .catch(e=>{});
-  }, []);
+  }, [timeZone]);
 
   return (<>
     {weather && <div className="weather d-flex">

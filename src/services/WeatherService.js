@@ -16,6 +16,34 @@ const conditions = [
 ];
 
 export default class WeatherService {
+
+  static async getData (newTimeZone) {
+
+    let localWeather = localStorage.getItem('weather');
+
+    if (localWeather) {
+      localWeather = JSON.parse(localWeather);
+
+      if (localWeather.city && localWeather.city.includes(newTimeZone.toLowerCase())) {
+        let lastDay = new Date(localWeather.date).getDay();
+
+        if (lastDay !== new Date().getDay()) {
+          return await this.fetchData(localWeather.city);
+        }
+        else {
+          return localWeather.items;
+        }
+      }
+      else {
+        newTimeZone = newTimeZone.split('/')[1].toLocaleLowerCase();
+        return await this.fetchData(newTimeZone);
+      }
+    }
+    else {
+      return await this.fetchData();
+    }
+  }
+
   //https://pro.openweathermap.org/data/2.5/weather?q=tunis&appid=cdd6336eb33f226c6d28d43f0f337371
   static async fetchData (city = 'tunis') {
     try {
@@ -24,32 +52,16 @@ export default class WeatherService {
       resp = await resp.json();
 
       localStorage.setItem('weather',
-        JSON.stringify({ items: resp, date: new Date().toLocaleDateString() })
+        JSON.stringify({
+          city: city.toLowerCase(),
+          items: resp,
+          date: new Date().toLocaleDateString()
+        })
       );
 
       return resp;
     } catch (error) {
       return null;
-    }
-  }
-
-  static async getData () {
-    let localWeather = localStorage.getItem('weather');
-
-    if (localWeather) {
-
-      localWeather = JSON.parse(localWeather);
-      let lastDay = new Date(localWeather.date).getDay();
-
-      if (lastDay !== new Date().getDay()) {
-        return await this.fetchData(this.getCity());
-      }
-      else {
-        return localWeather.items;
-      }
-    }
-    else {
-      return await this.fetchData(this.getCity());
     }
   }
 
@@ -59,14 +71,5 @@ export default class WeatherService {
     } catch (error) {
       return "";
     }
-  }
-
-  static getCity () {
-    let nTimeZone = localStorage.getItem('time-zone');
-    if (nTimeZone) {
-      nTimeZone = nTimeZone.split('/');
-      return nTimeZone ? nTimeZone[1].toLocaleLowerCase() : 'tunis';
-    }
-    else return 'tunis';
   }
 }
