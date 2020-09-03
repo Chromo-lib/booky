@@ -20,12 +20,20 @@ if (localSettings) {
   };
 }
 
+if (!defaultSettings.defaultBackground && localStorage.getItem('wallpaper')) {
+  let wallpaper = localStorage.getItem('wallpaper');
+  document.body.style.background = `linear-gradient(135deg,rgb(33 37 41 / 73%),rgb(33 37 41 / 88%)),url(data:image/png;base64,${wallpaper})`;
+}
+
 const SettingsModel = {
   ...defaultSettings,
 
   setSettings: action((state, { prop, value }) => {
     if (prop === 'timeZone' && !TimeService.isValidTimeZone(value)) {
       return;
+    }
+    if (prop === 'defaultBackground') {
+      document.body.style.background = '#2e2e30';
     }
     state[prop] = value;
     localStorage.setItem('settings', JSON.stringify(state));

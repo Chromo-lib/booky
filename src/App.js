@@ -26,6 +26,10 @@ export default function App () {
         setSettings({ prop, value: !SettingsModel.showNews });
         break;
 
+      case 'defaultBackground':
+        setSettings({ prop, value: !SettingsModel.defaultBackground });
+        break;
+
       default:
         break;
     }

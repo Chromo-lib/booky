@@ -14,6 +14,7 @@
   background-color: var(--main-color);
   padding: 20px;
   box-shadow: var(--light-box-shad);
+  animation: scale .25s;
 }
 
 .modal form h3 {

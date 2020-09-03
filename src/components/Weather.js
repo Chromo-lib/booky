@@ -21,21 +21,18 @@ function Weather () {
     {forecast && <div className="d-flex-col" >
 
       <button onClick={() => { setShowOtherDays(!showOtherDays) }}><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg></button>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg></button>
 
       <img
         src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
         alt="weather"
       />
 
-      <div>
+      <div className="mt-40">
+        <small>{forecast[0].weather[0].description}</small>
         <h2 className="m-0">{forecast[0].main.temp_max}°C</h2>
         <small>{timeZone}</small>
-      </div>
-
-      <div className="w-100 d-flex">
-      <span className="badge">{forecast[0].weather[0].description}</span>
       </div>
     </div>}
 

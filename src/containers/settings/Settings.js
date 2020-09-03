@@ -15,7 +15,7 @@ export default function Settings ({ SettingsModel, onSettingsChange }) {
   const settingsModalRef = useRef();
   const [show, setShow] = useState(false);
 
-  useClickAway(settingsModalRef, setShow);
+  useClickAway(settingsModalRef);
 
   return (<>
     <button onClick={() => { setShow(!show); }} className="btn-settings bg-inherit">
@@ -25,29 +25,17 @@ export default function Settings ({ SettingsModel, onSettingsChange }) {
     <div className="settings-modal" ref={settingsModalRef} style={{ display: show ? 'block' : 'none' }}>
 
       <ul>
-        <li className="d-flex justify-between">
-          <SpanIcon title="Show search bar" />
-          <Switch
-            onToggle={() => { onSettingsChange('showSearchBar'); }}
-            status={SettingsModel.showSearchBar}
-          />
-        </li>
-
-        <li className="d-flex justify-between">
-          <SpanIcon title="Show weather" />
-          <Switch
-            onToggle={() => { onSettingsChange('showWeather'); }}
-            status={SettingsModel.showWeather}
-          />
-        </li>
-
-        <li className="d-flex justify-between">
-          <SpanIcon title="Show news" />
-          <Switch
-            onToggle={() => { onSettingsChange('showNews'); }}
-            status={SettingsModel.showNews}
-          />
-        </li>
+        {Object.keys(SettingsModel).map(s => {
+          if (s !== 'timeZone' && s !== 'searchEngineName') {
+            return <li className="d-flex justify-between" key={s}>
+              <SpanIcon title={s.replace(/([a-z])([A-Z])/g, '$1 $2')} />
+              <Switch
+                onToggle={() => { onSettingsChange(s); }}
+                status={SettingsModel[s]}
+              />
+            </li>
+          }
+        })}
       </ul>
 
       <hr />
@@ -56,7 +44,7 @@ export default function Settings ({ SettingsModel, onSettingsChange }) {
 
       <hr />
 
-      <FormImageBG />
+      {!SettingsModel.defaultBackground && <FormImageBG />}
 
     </div>
   </>);

@@ -87,6 +87,8 @@ ul {
   padding: 0;
 }
 
+li {text-transform: capitalize;}
+
 small {
   color: var(--muted);
   font-size: 12px;
@@ -160,7 +162,7 @@ label {
 svg {margin-right: 5px;}
 
 button,
-li {
+li {  
   cursor: pointer;
   transition: background-color 0.25s;
 }
@@ -201,6 +203,7 @@ border-radius: 50%;}
 .box div { float: left;}
 
 /*******************************/
+.fs-14 {font-size: 14px !important;}
 hr {
   border: 0;
   height: 1px;
@@ -276,6 +279,8 @@ hr {
 .ml-10 {
   margin-left: 10px;
 }
+
+.mt-40 {margin-top: 45px; }
 
 .mt-30 {
   margin-top: 30px !important;
@@ -414,6 +419,7 @@ hr {
   background: var(--main-color);
   box-shadow: var(--light-box-shad);
   z-index: 12;
+  animation: scale .25s;
 }
 
 .settings-modal li { padding: 5px 0 !important; cursor: initial; }
@@ -421,7 +427,7 @@ hr {
 
 /******************************/
 .weather-list {
-  width: 180px;
+  width: 160px;
   position: fixed;
   left: 45px;
   top: 20px;
@@ -439,30 +445,21 @@ hr {
   color: var(--white);
 }
 
-.weather-list div>img { position: absolute; top:-16px; left:25%; width: 100px;}
-.weather-list h2 {  margin-top: 50px;  font-size: 30px;}
+.weather-list div>img { position: absolute; top:-16px; left:25%; width: 90px;}
+.weather-list h2 { font-size: 30px;}
 
 .other-days {
   display: none;
   position: fixed;
   top: 15px;
-  left: 240px;
+  left: 210px;
+  animation: scale .25s;
 }
 .other-days li img{width:30px;}
 
 .other-dayst li {padding:5px;}
 .weather-list li span {font-size: 14px;}
 
-.badge {
-  width: 100%;
-  margin: 5px 1px 0;
-  font-size: 10px;
-    background-color: var(--dark-transparent);
-    padding: 2px 10px;
-    border-radius: 7px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
 /************ Scroll **************/
 ::-webkit-scrollbar {
   width: 5px;

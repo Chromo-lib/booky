@@ -1,15 +1,10 @@
 import { useEffect } from "react";
 
-export default function useClickAway (ref, setShow) {
+export default function useClickAway (ref) {
 
   useEffect(() => {
     const handleClick = e => {
-      if (setShow) {
-        setShow(ref.current.contains(e.target));
-      }
-      else {
-        ref.current.style.display = ref.current.contains(e.target) ? 'block' : 'none';
-      }
+      ref.current.style.display = ref.current && ref.current.contains(e.target) ? 'block' : 'none';
       return;
     };
 

@@ -7,6 +7,7 @@ import { StoreProvider, createStore } from 'easy-peasy';
 import storeModel from './state/store';
 
 import './styles/index.css';
+import './styles/animation.css';
 
 const store = createStore(storeModel);
 
