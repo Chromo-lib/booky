@@ -1,11 +1,10 @@
 const defaultOptions = {
-  hour12: false,
   year: 'numeric',
   month: 'numeric',
   day: 'numeric',
   hour: 'numeric',
   minute: 'numeric',
-  second: 'numeric',
+hour12: true,
 };
 
 export default class TimeService {

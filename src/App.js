@@ -4,6 +4,7 @@ import Timer from './components/Timer';
 import FormSearch from './containers/FormSearch';
 import Settings from './containers/settings/Settings';
 import Weather from './components/Weather';
+import News from './components/News';
 
 export default function App () {
 
@@ -15,6 +16,8 @@ export default function App () {
 
       <Settings />
       <Weather />
+
+      <News />
     </div>
   </>);
 }

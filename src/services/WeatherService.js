@@ -16,6 +16,7 @@ const conditions = [
 ];
 
 export default class WeatherService {
+  //https://pro.openweathermap.org/data/2.5/weather?q=tunis&appid=cdd6336eb33f226c6d28d43f0f337371
   static async fetchData (city = 'tunis') {
     try {
       const url = 'https://api.weatherapi.com/v1/current.json' + API_KEY + '&q=' + city;

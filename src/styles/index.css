@@ -180,20 +180,24 @@ li {
 }
 
 /******************************/
-.inline-list {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.inline-list li {
-  flex: 1 1 20%;
-  justify-content: space-between;
+.box {
   background-color: var(--dark-transparent);
   text-align: left !important;
   margin: 10px;
-  padding: 15px;
+  padding: 10px;
+  display: flex;
+  max-height: 200px;
+  box-shadow: var(--light-box-shad);
 }
+
+.box h5 {font-weight: 100;}
+
+.box img { width: 50px !important;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+border-radius: 50%;}
+.box div { float: left;}
 
 /*******************************/
 hr {
@@ -217,9 +221,16 @@ hr {
   display: flex;
 }
 
-.d-flex>.col-2 {
-  width: 46.2% !important;
+.row {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
+
+.col-3 { width: 30% !important; }
+.col-2 { width: 46.2% !important;}
 
 .d-flex-col {
   display: flex;
@@ -263,6 +274,10 @@ hr {
 
 .ml-10 {
   margin-left: 10px;
+}
+
+.mt-30 {
+  margin-top: 30px !important;
 }
 
 .mt-10 {
@@ -372,6 +387,16 @@ hr {
   text-overflow: ellipsis;
 }
 
+.truncate-mult {
+  display: block;
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /************************************/
 .btn-settings {
   position: fixed;
@@ -414,6 +439,8 @@ hr {
   background: var(--main-color);
   margin: 0 12px;
 }
+
+.light-box-shad { box-shadow: 0 2px 15px rgba(255, 255, 255, 0.226);}
 /************ Scroll **************/
 ::-webkit-scrollbar {
   width: 5px;

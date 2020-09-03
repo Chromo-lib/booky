@@ -11,7 +11,7 @@ export default function Timer () {
       setInterval(() => {
         const { date, time } = TimeService.native(timeZone);
         setState({ time, date });
-      }, 1000);
+      }, 1000*20);
   }, [timeZone]);
 
   return (<>

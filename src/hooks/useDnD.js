@@ -5,33 +5,54 @@ export default function useDnD (bookmarks, setBookmarks) {
   useEffect(() => {
     let selectedIdx = 0;
     let replacedElementIndex = 0;
+    let replacedElement = null;
     const listCards = Array.from(document.querySelectorAll('.card-container'));
 
     const dragStart = (e) => {
       e.dataTransfer.dropEffect = "move";
       selectedIdx = +e.currentTarget.id;
+      e.currentTarget.classList.add('bg-trans');
+      if (replacedElement) {
+        replacedElement.classList.remove('light-box-shad');
+      }
     }
 
     const dragOver = (e) => {
       e.preventDefault();
       replacedElementIndex = +e.currentTarget.id;
-      e.currentTarget.classList.add('bg-trans');
+      replacedElement = e.currentTarget;
+      if (replacedElementIndex !== selectedIdx) {
+        replacedElement.classList.add('light-box-shad');
+      }
+    }
+
+    const dragLeave = (e) => {
+      e.preventDefault();
+      if (replacedElementIndex) {
+        replacedElement.classList.remove('light-box-shad');
+      }
     }
 
     const dragEnd = (e) => {
       e.preventDefault();
       let nbk = bookmarks.slice(0);
 
-      let tmp = nbk[replacedElementIndex];
-      nbk[replacedElementIndex] = nbk[selectedIdx];
-      nbk[selectedIdx] = tmp;
+      if (replacedElement) {
 
-      LocalBookmarks.replaceAll(nbk);
-      setBookmarks(nbk);
+        e.currentTarget.classList.remove('bg-trans');
+        replacedElement.classList.remove('light-box-shad');
 
-      listCards.forEach(el => {
-        el.classList.remove('bg-trans')
-      });
+        let tmp = nbk[replacedElementIndex];
+        nbk[replacedElementIndex] = nbk[selectedIdx];
+        nbk[selectedIdx] = tmp;
+
+        LocalBookmarks.replaceAll(nbk);
+        setBookmarks(nbk);
+
+        listCards.forEach(el => {
+          el.classList.remove('bg-trans');
+        });
+      }
     }
 
     const drop = (e) => {
@@ -41,6 +62,7 @@ export default function useDnD (bookmarks, setBookmarks) {
 
     listCards.forEach(el => {
       el.addEventListener('dragstart', dragStart, false);
+      el.addEventListener('dragenter', dragLeave, false);
       el.addEventListener('dragover', dragOver, false);
       el.addEventListener('dragend', dragEnd, false);
       el.addEventListener('drop', drop, false);
@@ -49,6 +71,7 @@ export default function useDnD (bookmarks, setBookmarks) {
     return () => {
       listCards.forEach(el => {
         el.removeEventListener('dragstart', dragStart);
+        el.removeEventListener('dragenter', dragLeave);
         el.removeEventListener('dragover', dragOver);
         el.removeEventListener('dragend', dragEnd);
         el.removeEventListener('drop', drop);
