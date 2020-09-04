@@ -20,11 +20,9 @@ export default class WeatherService {
 
   static async getData (newTimeZone) {
 
-    let localWeather = localStorage.getItem('weather');
+    let localWeather = this.getLocalData();
 
     if (localWeather) {
-      localWeather = JSON.parse(localWeather);
-
       if (localWeather.city && localWeather.city.includes(newTimeZone.toLowerCase())) {
         let lastDay = new Date(localWeather.date).getDay();
 
@@ -64,8 +62,16 @@ export default class WeatherService {
 
       return items;
     } catch (error) {
-      return null;
+      return this.getLocalData() ? this.getLocalData().items : null;
     }
+  }
+
+  static getLocalData () {
+    let localData = localStorage.getItem('weather');
+    if (localData) {
+      return JSON.parse(localData)
+    }
+    return null;
   }
 
   static getIcon (code) {

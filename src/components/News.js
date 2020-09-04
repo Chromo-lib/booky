@@ -8,15 +8,16 @@ export default function News () {
   useEffect(() => {
     NewsService.fetchData().then(r => {
       setNews(r);
-    });
+    })
+      .catch(e => { });
   }, []);
 
-  return (
-    <ul className="row w-75 mb-20">
-      {news && news.map((n, i) => <li key={'news' + i} className="col-3 box">
+  return (<>
+    {news && <ul className="row w-75 mb-20">
+      {news.map((n, i) => <li key={'news' + i} className="col-3 box">
         <img
           src={"https://api.faviconkit.com/" + n.data.domain + "/144"}
-          alt={n.data.title}
+          alt="news"
         />
 
         <div>
@@ -26,6 +27,6 @@ export default function News () {
           <small>{n.data.domain || n.data.subreddit}</small>
         </div>
       </li>)}
-    </ul>
-  );
+    </ul>}
+  </>);
 }

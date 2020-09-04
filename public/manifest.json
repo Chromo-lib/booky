@@ -1,6 +1,5 @@
 {
     "manifest_version": 2,
-    "offline_enabled": true,
     "name": "Booky",
     "description": "New tab page for most modern browsers.",
     "version": "1.0.0",
@@ -17,7 +16,7 @@
     },
     "permissions": [
         "activeTab",
-        "topSites"
+        "chrome://favicon/*"
     ],
     "content_security_policy": "script-src 'self'; object-src 'self';"
 }

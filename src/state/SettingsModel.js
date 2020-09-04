@@ -10,7 +10,6 @@ let defaultSettings = {
   searchEngineName: 'Google',
 };
 
-
 let localSettings = localStorage.getItem('settings');
 
 if (localSettings) {

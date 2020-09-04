@@ -58,6 +58,7 @@ export default function useDnD (bookmarks, setBookmarks) {
     const drop = (e) => {
       if (e.preventDefault) { e.preventDefault(); }
       if (e.stopPropagation) { e.stopPropagation(); }
+      return false;
     }
 
     listCards.forEach(el => {
