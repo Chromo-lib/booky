@@ -17,13 +17,14 @@
   animation: scale .25s;
 }
 
-.modal form h3 {
-  width: 100%;
-  margin-top: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.modal form div:first-child {
+  justify-content:space-between;
   border-bottom: 1px solid var(--dark-transparent);
   padding-bottom: 10px;
-  font-size: 14px;
-  text-align: left;
+}
+
+.modal form h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
 }

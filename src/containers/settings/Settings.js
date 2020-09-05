@@ -10,6 +10,8 @@ function SpanIcon ({ title }) {
   </svg>{title}</span>
 }
 
+const colors = ['#2196f3', '#737373', '#00b94a', '#607d8b'];
+
 export default function Settings ({ SettingsModel, onSettingsChange }) {
 
   const settingsModalRef = useRef();

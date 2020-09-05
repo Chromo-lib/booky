@@ -182,6 +182,15 @@ li {
   background-color: inherit;
 }
 
+.btn-link {
+  background-color: inherit;
+  color: var(--muted);
+  padding: 0;
+  margin: 0;
+}
+
+.btn-link:hover {color: var(--white); background-color: inherit; }
+
 /******************************/
 .box {
   background-color: var(--dark-transparent);
@@ -403,7 +412,7 @@ hr {
     text-overflow: ellipsis;
 }
 
-/************************************/
+/***************** Settings modal *******************/
 .btn-settings {
   position: fixed;
   right: 45px;
@@ -425,6 +434,13 @@ hr {
 .settings-modal li { padding: 5px 0 !important; cursor: initial; }
 .settings-modal li:hover {background-color: inherit !important; }
 
+/* .list-colors {display: flex; justify-content: space-between;}
+.box-50 {
+  width: 50px;
+  height: 50px;
+  background-color: var(--main-color);
+} */
+
 /******************************/
 .weather-list {
   width: 160px;
@@ -435,8 +451,6 @@ hr {
   border-radius: 4px;
   z-index: 15;
   padding:5px;
-  overflow-y: auto !important;
-  box-shadow: var(--light-box-shad);
 }
 
 .weather-list button {

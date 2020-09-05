@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import LocalBookmarks from '../utils/LocalBookmarks';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 
-export default function AddOrUpdateBookmark ({ bkAction, bookmark, onClick, setShowModal }) {
+export default function CrudBookmark ({ bkAction, bookmark, setShowModal }) {
 
+  const bookmarks = useStoreState(state => state.bkModel.bookmarks);
+  const setBookmarks = useStoreActions(actions => actions.bkModel.setBookmarks);
   const [state, setState] = useState({ id: '', title: '', url: '', ...bookmark });
 
   const onchange = (e) => {
@@ -29,9 +32,23 @@ export default function AddOrUpdateBookmark ({ bkAction, bookmark, onClick, setS
     setShowModal(false);
   }
 
+  const onDeleteBookmark = () => {
+    let c = window.confirm("Are you sure you wish to delete? " + bookmark.title);
+    if (c) {
+      let newBookmarks = bookmarks.filter(b => b.id !== bookmark.id);
+      setBookmarks(newBookmarks);
+      LocalBookmarks.replaceAll(newBookmarks);
+      setShowModal(false);
+    }
+  }
+
   return (<>
     <form onSubmit={bkAction === 'add' ? onAddBookmark : onUpdateBookmark} className="d-flex-col">
-      <h3 className="mb-0">{bkAction} bookmark</h3>
+
+      <div className="w-100 d-flex mb-10">
+        <h3 className="m-0">{bkAction} bookmark</h3>
+        <button type="button" onClick={() => { setShowModal(false); }} className="btn-link">x</button>
+      </div>
 
       <div className="w-100 d-flex-col align-start mb-10">
         <label htmlFor="title"><svg xmlns="http://www.w3.org/2000/svg" width="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -49,7 +66,9 @@ export default function AddOrUpdateBookmark ({ bkAction, bookmark, onClick, setS
 
       <div className="w-100 d-flex justify-between">
         <button type="submit" className="mr-10 col-2">{bkAction}</button>
-        <button type="reset" className="bg-red ml-10 col-2" onClick={onClick}>cancel</button>
+        {bkAction === 'update'
+          ? <button type="button" className="bg-red ml-10 col-2" onClick={onDeleteBookmark}>delete</button>
+          : <button type="reset" className="bg-red ml-10 col-2">Reset</button>}
       </div>
     </form>
   </>);
