@@ -10,8 +10,9 @@ function Weather () {
 
   useEffect(() => {
     WeatherService.getData(timeZone)
-      .then(r => {
-        setForecast(r);
+      .then(resp => {
+        setForecast(resp);
+        window.chrome.browserAction.setBadgeText({ text: `${parseInt(resp[0].main.temp_max, 10)}°C` });
       })
       .catch(e => { });
   }, [timeZone]);
@@ -31,7 +32,7 @@ function Weather () {
 
       <div className="mt-40">
         <small>{forecast[0].weather[0].description}</small>
-        <h2 className="m-0">{forecast[0].main.temp_max}°C</h2>
+        <h2 className="m-0">{parseInt(forecast[0].main.temp_max, 10)}°C</h2>
         <small>{timeZone}</small>
       </div>
     </div>}
