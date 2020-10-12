@@ -1,9 +1,14 @@
 # Directories
 node_modules/
 .vscode/
+.cache
 build/
+dist/
 
 # Files
 package-lock.json
 yarn-error.log
 yarn.lock
+
+*.rar
+*.zip

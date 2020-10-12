@@ -12,11 +12,11 @@ export default class TimeService {
   static native (zone) {
     try {
       let options = { timeZone: zone, ...defaultOptions };
-      let formatter = new Intl.DateTimeFormat([], options); // => "8/18/2020, 12:56:18 AM"
+      let formatter = new Intl.DateTimeFormat('en-US', options); // => "8/18/2020, 12:56:18 AM"
       formatter = formatter.format(new Date()).split(', '); // => ["8/18/2020, 12:56:18 AM"]
       return { date: formatter[0], time: formatter[1] };
     } catch (error) {
-      let defRegion = new Intl.DateTimeFormat('default', defaultOptions);
+      let defRegion = new Intl.DateTimeFormat('en-US', defaultOptions);
       defRegion = defRegion.format(new Date()).split(', '); // => ["8/18/2020, 12:56:18 AM"]
       return { date: defRegion[0], time: defRegion[1] };
     }

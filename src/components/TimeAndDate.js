@@ -9,8 +9,8 @@ export default function TimeAndDate () {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const { date, time } = TimeService.native(timeZone);
-      setState({ time, date });
+      const timeDate = TimeService.native(timeZone);
+      setState(timeDate);
     }, 1000 * 60);
 
     return () => clearInterval(interval);

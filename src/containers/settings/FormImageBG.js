@@ -1,17 +1,21 @@
 import React from 'react';
 
+const imgTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
 export default function FormImageBG () {
 
   const onSetWallpaper = (e) => {
     e.preventDefault();
 
     const file = e.target.elements[0].files[0];
-
     const reader = new FileReader();
+
     reader.onloadend = () => {
-      const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
-      localStorage.setItem('wallpaper', base64String);
-      document.body.style.background = `linear-gradient(135deg,rgb(33 37 41 / 73%),rgb(33 37 41 / 88%)),url(data:image/png;base64,${base64String})`;
+      if (imgTypes.includes(file.type)) {
+        const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+        localStorage.setItem('wallpaper', base64String);
+        document.body.style.background = `linear-gradient(135deg,rgb(33 37 41 / 65%),rgb(33 37 41 / 72%)),url(data:image/png;base64,${base64String})`;
+      }
     };
     reader.readAsDataURL(file);
   }

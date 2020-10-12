@@ -42,7 +42,7 @@ export default function Bookmarks () {
 
         <div className="h-100 card d-flex-col" onClick={() => { onAction('add'); }}>
           <img src={placeImg} alt="add new bookmark" />
-          <span>{'+'}</span>
+          <span>+</span>
         </div>
       </div>
 

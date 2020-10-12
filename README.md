@@ -1,8 +1,13 @@
-# Booky
+<div align="center">
+  <img src="public/icons/128.png"><br /><br />
+  <p>🔥 New tab page for most modern browsers 🔥</p>
 
-- [ ] search
-- [ ] choose search engine
-- [ ] choose bg color
+  ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen) ![GitHub release](https://img.shields.io/github/release/Chromo-lib/booky/all?logo=GitHub) ![](https://badgen.net/github/license/Chromo-lib/booky)
 
-- [ ] top visited websites
-- [ ] News/Weather
+</div>
+
+# Capture
+![](captures/capture.png)
+
+# License
+MIT

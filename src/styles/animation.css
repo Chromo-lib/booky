@@ -16,3 +16,13 @@
   0% { transform: scale(0.95); transform-origin: 100% 0; } 
   100% { transform: scale(1); } 
 }
+
+.slide-in {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0%); opacity: 1; }
+}

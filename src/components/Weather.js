@@ -6,49 +6,41 @@ function Weather () {
 
   const timeZone = useStoreState(state => state.SettingsModel.timeZone);
   const [forecast, setForecast] = useState(null);
-  const [showOtherDays, setShowOtherDays] = useState(false);
+  const [tempUnit, setTempUnit] = useState(localStorage.getItem('temp-unit') || '°C');
 
   useEffect(() => {
     WeatherService.getData(timeZone)
       .then(resp => {
         setForecast(resp);
-        window.chrome.browserAction.setBadgeText({ text: `${parseInt(resp[0].main.temp_max, 10)}°C` });
+        window.chrome.browserAction.setBadgeText({ text: `${parseInt(resp.current.temp_c, 10)}°C` });
       })
       .catch(e => { });
   }, [timeZone]);
 
-  return (<div className="weather-list">
+  const onTempUnit = () => {
+    let tmp = tempUnit === '°C' ? '°F' : '°C';
+    setTempUnit(tmp);
+    localStorage.setItem('temp-unit', tmp);
+  }
 
-    {forecast && <div className="d-flex-col" >
+  return (<div className="weather-list d-flex">
 
-      <button onClick={() => { setShowOtherDays(!showOtherDays) }}><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg></button>
-
+    {forecast && <>
       <img
-        src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
+        src={`http:${forecast.current.condition.icon}`}
         alt="weather"
+        width="35"
+        height="35"
       />
 
-      <div className="mt-40">
-        <small>{forecast[0].weather[0].description}</small>
-        <h2 className="m-0">{parseInt(forecast[0].main.temp_max, 10)}°C</h2>
-        <small>{timeZone}</small>
-      </div>
-    </div>}
+      <h2 className="m-0 ml-10">{parseInt(forecast.current[tempUnit === '°C' ? 'temp_c' : 'temp_f'], 10)}{tempUnit}
+        <span className="ml-10 slide-in" onClick={onTempUnit}>| {tempUnit === '°C' ? '°F' : '°C'}</span></h2>
 
-    <ul className="other-days" style={{ display: showOtherDays ? 'block' : 'none' }}>
-      {forecast && forecast.map(w => {
-        return <li className="d-flex" key={w.dt}>
-          <img
-            src={`http://openweathermap.org/img/wn/${w.weather[0].icon}@2x.png`}
-            alt="weather"
-          />
-          <span className="m-0">{w.main.temp_max}°C</span>
-          <small className="ml-10">({w.dt_txt.slice(5, 10)})</small>
-        </li>
-      })}
-    </ul>
+      <div className="d-flex-col txt-center ml-10">
+        <small className="c-white">{forecast.current.condition.text}</small>
+        <small>({timeZone})</small>
+      </div>
+    </>}
   </div>);
 }
 

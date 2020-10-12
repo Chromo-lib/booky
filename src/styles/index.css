@@ -244,6 +244,7 @@ hr {
 
 .col-3 { width: 30% !important; }
 .col-2 { width: 46.2% !important;}
+.column-2>* { width: 50% !important;}
 
 .d-flex-col {
   display: flex;
@@ -261,8 +262,9 @@ hr {
   justify-content: space-between;
 }
 
-.align-start {
-  justify-content: flex-start;
+.justify-start {
+  justify-content: flex-start !important;
+  align-items: center;
 }
 
 .py-3 {
@@ -356,11 +358,11 @@ hr {
 }
 
 .bg-dark {
-  background-color: var(--main-color);
+  background-color: var(--main-color) !important;
 }
 
 .bg-trans {
-  background-color: var(--dark-transparent);
+  background-color: var(--dark-transparent) !important;
 }
 
 .bg-red {
@@ -383,7 +385,7 @@ hr {
   text-transform: uppercase;
 }
 
-.align-start {
+.justify-start {
   align-items: flex-start;
 }
 
@@ -419,6 +421,12 @@ hr {
   top: 20px;
 }
 
+.btn-apps {
+  position: fixed;
+  left: 45px;
+  top: 20px;
+}
+
 .settings-modal {
   width: 300px;
   position: fixed;
@@ -434,47 +442,33 @@ hr {
 .settings-modal li { padding: 5px 0 !important; cursor: initial; }
 .settings-modal li:hover {background-color: inherit !important; }
 
-/* .list-colors {display: flex; justify-content: space-between;}
-.box-50 {
-  width: 50px;
-  height: 50px;
-  background-color: var(--main-color);
-} */
-
-/******************************/
-.weather-list {
-  width: 160px;
+.apps-modal {
+  width: 290px;
   position: fixed;
+  top: 65px;
   left: 45px;
-  top: 20px;
-  background-color: var(--light-dark);
-  border-radius: 4px;
-  z-index: 15;
-  padding:5px;
-}
-
-.weather-list button {
-  position: absolute; top:5px; right:2px;
-  background-color: inherit;
-  padding: 0;
-  color: var(--white);
-}
-
-.weather-list div>img { position: absolute; top:-16px; left:25%; width: 90px;}
-.weather-list h2 { font-size: 30px;}
-
-.other-days {
-  display: none;
-  position: fixed;
-  top: 15px;
-  left: 210px;
+  background: var(--light-dark);
+  box-shadow: var(--light-box-shad);
+  padding: 10px;
+  z-index: 12;
   animation: scale .25s;
 }
-.other-days li img{width:30px;}
+.apps-modal li { padding: 5px 10px; font-size: 12px !important;}
+/******************************/
+.weather-list {
+  position: fixed;
+  left: 125px;
+  top: 13px;
+  border-radius: 4px;
+  z-index: 15;
+  padding:5px 10px;
+  box-shadow: 0 0 15px 5px rgb(0 0 0 / 12%);
+}
 
-.other-dayst li {padding:5px;}
-.weather-list li span {font-size: 14px;}
-
+.weather-list h2 { display: flex; align-items: center; font-size: 20px; }
+.weather-list h2>span { display: none; color: var(--muted); cursor: pointer; }
+.weather-list h2>span:hover { display: none; cursor: pointer; color: var(--white); }
+.weather-list h2:hover>span { display: flex; font-size: 14px; }
 /************ Scroll **************/
 ::-webkit-scrollbar {
   width: 5px;
@@ -511,4 +505,6 @@ hr {
   .inline-list li {
     flex: 1 1 100%;
   }
+
+  .weather-list {display: none;}
 }
