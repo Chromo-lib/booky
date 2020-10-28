@@ -25,6 +25,8 @@
 *::after {
   box-sizing: border-box;
   font-family: 'Segoe-UI.ttf';
+  scrollbar-width: thin;
+  scrollbar-color: #393939 #5c5c5c;
 }
 
 body {
@@ -42,6 +44,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #393939 #5c5c5c;
 }
 
 #root {
@@ -466,7 +470,7 @@ hr {
   box-shadow: 0 0 15px 5px rgb(0 0 0 / 12%);
 }
 
-.weather-list h2 { display: flex; align-items: center; font-size: 20px; }
+.weather-list h2 { display: flex; align-items: center; font-size: 25px; }
 .weather-list h2>span { display: none; color: var(--muted); cursor: pointer; }
 .weather-list h2>span:hover { display: none; cursor: pointer; color: var(--white); }
 .weather-list h2:hover>span { display: flex; font-size: 14px; }
@@ -476,11 +480,11 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--main-color);
+  background: var(--orange);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--orange);
+  background: var(--main-color);
 }
 
 @media screen and (max-width: 978px) {

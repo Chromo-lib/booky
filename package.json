@@ -3,7 +3,7 @@
   "private": true,
   "description": "New tab page for most modern browsers.",
   "license": "BSD-3-Clause",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "dependencies": {
     "easy-peasy": "^3.3.1",
     "react": "17.0.0-rc.0",

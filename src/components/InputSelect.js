@@ -37,7 +37,9 @@ export default function InputSelect ({ label, data, placeholder, onSelectItem })
     />
 
     <ul className={"w-100 " + (state.showItems ? "disp-block" : "disp-none")}>
-      {state.data.map(d => <li key={d} onClick={() => { onItem(d); }}>{d}</li>)}
+      {state.data.map(d => <li key={d} 
+      onClick={() => { onItem(d); }}
+      className={"w-100 " + (state.showItems ? "c-bleu" : "")}>{d}</li>)}
     </ul>
 
   </div>);

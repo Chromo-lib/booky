@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Booky",
     "description": "New tab page for most modern browsers.",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "chrome_url_overrides": {
         "newtab": "index.html"
     },
@@ -21,5 +21,8 @@
     "browser_action": {
         "default_icon": "./icons/32.png"
     },
-    "content_security_policy": "script-src 'self'; object-src 'self';"
+    "content_security_policy": "script-src 'self'; object-src 'self';",
+    "web_accessible_resources": [
+        "search/*.png"
+    ]
 }

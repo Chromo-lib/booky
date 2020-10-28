@@ -28,4 +28,5 @@
 
 .input-select ul li:hover {
   background-color: #ffffff17 !important;
+  color: var(--orange);
 }
