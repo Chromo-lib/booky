@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Booky",
     "description": "New tab page for most modern browsers.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "chrome_url_overrides": {
         "newtab": "index.html"
     },
@@ -16,7 +16,10 @@
     },
     "permissions": [
         "activeTab",
-        "chrome://favicon/*"
+        "chrome://favicon/*",
+        "https://www.reddit.com/*",
+        "https://jsonblob.com/*",
+        "https://api.weatherapi.com/*"
     ],
     "browser_action": {
         "default_icon": "./icons/32.png"
