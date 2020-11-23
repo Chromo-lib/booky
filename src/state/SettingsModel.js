@@ -4,7 +4,6 @@ import TimeService from '../services/TimeService';
 let defaultSettings = {
   showSearchBar: true,
   showWeather: false,
-  showNews: false,
   showDateTime: true,
   defaultBackground: true,
   timeZone: TimeService.getSystemTimeZone(),

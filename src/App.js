@@ -7,7 +7,6 @@ import Weather from './components/Weather';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 
 const DefaultApps = React.lazy(() => import('./components/DefaultApps'));
-const News = React.lazy(() => import('./components/News'));
 
 export default function App () {
 
@@ -41,26 +40,21 @@ export default function App () {
     }
   }
 
-  return (<>
-    <div className="vh-90 container d-flex-col py-3">
+  return (<div className="vh-90 container d-flex-col py-3">
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <DefaultApps />
-      </Suspense>
-
-      {SettingsModel.showDateTime && <TimeAndDate />}
-
-      {SettingsModel.showSearchBar && <FormSearch />}
-
-      <Bookmarks />
-
-      <Settings SettingsModel={SettingsModel} onSettingsChange={onSettingsChange} />
-
-      {SettingsModel.showWeather && <Weather />}
-
-    </div>
     <Suspense fallback={<div>Loading...</div>}>
-      {SettingsModel.showNews && <News />}
+      <DefaultApps />
     </Suspense>
-  </>);
+
+    {SettingsModel.showDateTime && <TimeAndDate />}
+
+    {SettingsModel.showSearchBar && <FormSearch />}
+
+    <Bookmarks />
+
+    <Settings SettingsModel={SettingsModel} onSettingsChange={onSettingsChange} />
+
+    {SettingsModel.showWeather && <Weather />}
+
+  </div>);
 }

@@ -7,7 +7,7 @@ export default function Card ({ id, title, url }) {
   return (
     <div className="h-100 card" data-id={id}>
 
-      <a href={url} target="_self" className="d-flex-col">
+      <a href={url} target="_self" className="d-flex-col txt-center">
         <img
           alt={title}
           src={Utils.isChrome() && process.env.NODE_ENV === 'production'

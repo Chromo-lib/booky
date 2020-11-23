@@ -1,13 +1,13 @@
 {
   "name": "booky",
   "private": true,
-  "description": "New tab page for most modern browsers.",
+  "description": "Nice and modern new tab page for most modern browsers.",
   "license": "BSD-3-Clause",
   "version": "1.0.4",
   "dependencies": {
     "easy-peasy": "^3.3.1",
-    "react": "17.0.0-rc.0",
-    "react-dom": "17.0.0-rc.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-scripts": "3.4.3"
   },
   "scripts": {
