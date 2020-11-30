@@ -6,7 +6,7 @@ export default function useDnD (bookmarks, setBookmarks) {
     let selectedIdx = 0;
     let replacedElementIndex = 0;
     let replacedElement = null;
-    const listCards = Array.from(document.querySelectorAll('.card-container'));
+    const listCards = Array.from(document.querySelectorAll('.card'));
 
     const dragStart = (e) => {
       e.dataTransfer.dropEffect = "move";

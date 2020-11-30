@@ -366,10 +366,6 @@ hr {
   background-color: var(--main-color) !important;
 }
 
-.bg-trans {
-  background-color: var(--dark-transparent) !important;
-}
-
 .bg-red {
   background-color: var(--red);
 }

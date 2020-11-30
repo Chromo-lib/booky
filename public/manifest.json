@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Booky",
     "description": "Beautiful and modern new tab page for most modern browsers.",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "chrome_url_overrides": {
         "newtab": "index.html"
     },
@@ -16,9 +16,8 @@
     },
     "permissions": [
         "activeTab",
-        "chrome://favicon/*",
-        "https://cdn.jsdelivr.net/*",
-        "https://api.weatherapi.com/*"
+        "<all_urls>",
+        "https://*/*"
     ],
     "browser_action": {
         "default_icon": "./icons/32.png"
