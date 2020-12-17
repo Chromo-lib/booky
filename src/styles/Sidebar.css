@@ -1,7 +1,7 @@
 .nav {
   height: 100%;
-  width: 270px;
-  background: var(--light-dark);
+  width: 320px;
+  background: var(--main-color);
   position: fixed;
   bottom: 0;
   right: 0;  
@@ -41,6 +41,8 @@ label {
 }
 
 .nav__toggle:hover {background-color: var(--white);}
+
+.sidebar-content li {text-transform: uppercase !important;}
 
 /* Navigation open styles */
 .nav-open {

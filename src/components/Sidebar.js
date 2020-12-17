@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Sidebar.css';
 
-export default function Sidebar () {
+export default function Sidebar ({children}) {
 
   const [show, setShow] = useState(false); // show sidebar (right
 
@@ -16,7 +16,7 @@ export default function Sidebar () {
       </div>
 
       <div className="sidebar-content">
-
+        {children}
       </div>
 
     </nav>

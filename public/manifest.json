@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Booky",
     "description": "Beautiful and modern new tab page for most modern browsers.",
-    "version": "1.0.6",
+    "version": "1.1.0",
     "chrome_url_overrides": {
         "newtab": "index.html"
     },

@@ -41,5 +41,5 @@
 }
 
 .border-dotted {
-  box-shadow:inset 0 0 20px 1px rgb(0 0 0 / 27%), inset 0 0 65px 8px rgb(0 0 0 / 10%);
+  box-shadow:inset 0 0 20px 1px rgb(0 0 0 / 30%), inset 0 0 65px 8px rgb(0 0 0 / 15%);
 }

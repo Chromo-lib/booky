@@ -1,12 +1,15 @@
 import React, { Suspense } from 'react';
 import Bookmarks from './containers/Bookmarks';
-import TimeAndDate from './components/TimeAndDate';
-import FormSearch from './containers/FormSearch';
-import Settings from './containers/settings/Settings';
-import Weather from './components/Weather';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 
-const DefaultApps = React.lazy(() => import('./components/DefaultApps'));
+import TimeAndDate from './containers/TimeAndDate';
+import Spinner from './components/Spinner';
+
+const FormSearch = React.lazy(() => import('./containers/FormSearch'));
+const DefaultApps = React.lazy(() => import('./containers/DefaultApps'));
+const Weather = React.lazy(() => import('./containers/Weather'));
+const Settings = React.lazy(() => import('./containers/settings/Settings'));
+const News = React.lazy(() => import('./containers/News'));
 
 export default function App () {
 
@@ -42,19 +45,19 @@ export default function App () {
 
   return (<div className="vh-90 container d-flex-col py-3">
 
-    <Suspense fallback={<div>Loading...</div>}>
+    {SettingsModel.showDateTime && <TimeAndDate />}    
+
+    <Suspense fallback={<Spinner />}>
+      {SettingsModel.showSearchBar && <FormSearch />}
       <DefaultApps />
+      {SettingsModel.showWeather && <Weather />}
+      <Settings SettingsModel={SettingsModel} onSettingsChange={onSettingsChange} />
     </Suspense>
-
-    {SettingsModel.showDateTime && <TimeAndDate />}
-
-    {SettingsModel.showSearchBar && <FormSearch />}
 
     <Bookmarks />
 
-    <Settings SettingsModel={SettingsModel} onSettingsChange={onSettingsChange} />
-
-    {SettingsModel.showWeather && <Weather />}
-
+    <Suspense fallback={<Spinner />}>
+      {SettingsModel.showNews && <News />}
+    </Suspense>
   </div>);
 }

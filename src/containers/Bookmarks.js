@@ -35,11 +35,10 @@ export default function Bookmarks () {
     <div className="d-flex">
 
       <div id="list-cards" className="w-100 d-flex">
-        {bookmarks.map((b, idx) => <Card bookmark={b} onAction={onAction} key={idx} />)}
+        {bookmarks.map((b, idx) => <Card bookmark={b} onAction={onAction} index={idx} key={idx} />)}
 
         <div className="h-100 card d-flex-col" onClick={() => { onAction('add'); }}>
           <img src={placeImg} alt="add new bookmark" />
-          <span>+</span>
         </div>
       </div>
 

@@ -6,11 +6,13 @@ export default function useDnD (bookmarks, setBookmarks) {
     let selectedIdx = 0;
     let replacedElementIndex = 0;
     let replacedElement = null;
-    const listCards = Array.from(document.querySelectorAll('.card'));
+    const listCards = Array.from(document.querySelectorAll('[id^=bookmark]'));
 
     const dragStart = (e) => {
+      
       e.dataTransfer.dropEffect = "move";
-      selectedIdx = +e.currentTarget.id;
+      selectedIdx = +e.currentTarget.dataset.id;
+      
       e.currentTarget.classList.add('bg-trans');
       if (replacedElement) {
         replacedElement.classList.remove('border-dotted');
@@ -19,7 +21,7 @@ export default function useDnD (bookmarks, setBookmarks) {
 
     const dragOver = (e) => {
       e.preventDefault();
-      replacedElementIndex = +e.currentTarget.id;
+      replacedElementIndex = +e.currentTarget.dataset.id;
       replacedElement = e.currentTarget;
       if (replacedElementIndex !== selectedIdx) {
         replacedElement.classList.add('border-dotted');

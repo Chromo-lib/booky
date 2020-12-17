@@ -5,6 +5,7 @@ let defaultSettings = {
   showSearchBar: true,
   showWeather: false,
   showDateTime: true,
+  showNews: true,
   defaultBackground: true,
   timeZone: TimeService.getSystemTimeZone(),
   searchEngineName: 'Google',
@@ -21,7 +22,11 @@ if (localSettings) {
 
 if (!defaultSettings.defaultBackground && localStorage.getItem('wallpaper')) {
   let wallpaper = localStorage.getItem('wallpaper');
-  document.body.style.background = `linear-gradient(135deg,rgb(33 37 41 / 65%),rgb(33 37 41 / 72%)),url(data:image/png;base64,${wallpaper})`;
+  if (wallpaper && wallpaper.length > 200) {
+    document.body.style.background = `linear-gradient(135deg,rgb(33 37 41 / 65%),rgb(33 37 41 / 72%)),url(data:image/png;base64,${wallpaper})`;
+  } else {
+    document.body.style.background = `linear-gradient(135deg,rgb(33 37 41 / 65%),rgb(33 37 41 / 72%)),url(${wallpaper})`;
+  }
 }
 
 const SettingsModel = {

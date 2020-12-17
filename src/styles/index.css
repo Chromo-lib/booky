@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: 'Segoe-UI.ttf';
-  src: url(../assets/Segoe-UI.ttf);
+  src: url(../assets/Cairo-Regular.ttf);
 }
 
 *,
@@ -108,7 +108,7 @@ label {
   text-align: left;
 }
 
-input[type="text"],input[type="search"],input[type="file"],
+input[type="text"],input[type="search"],input[type="file"],input[type="url"],
 select {
   display: block;
   width: 100%;
@@ -151,8 +151,7 @@ button {
 
 button:hover,
 li:hover {
-  background-color: var(--dark-transparent);
-  color: var(--white);
+  opacity: .8;
 }
 
 button,
@@ -218,6 +217,8 @@ border-radius: 50%;}
 /*******************************/
 .fs-14 {font-size: 14px !important;}
 hr {
+  margin: 15px 0 !important;
+  width: 100%;
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(136 136 136 / 45%), rgba(0, 0, 0, 0));
@@ -416,32 +417,11 @@ hr {
 }
 
 /***************** Settings modal *******************/
-.btn-settings {
-  position: fixed;
-  right: 45px;
-  top: 20px;
-}
-
 .btn-apps {
   position: fixed;
   left: 45px;
   top: 20px;
 }
-
-.settings-modal {
-  width: 300px;
-  position: fixed;
-  top: 60px;
-  right: 45px;
-  padding: 10px;
-  background: var(--main-color);
-  box-shadow: var(--light-box-shad);
-  z-index: 12;
-  animation: scale .25s;
-}
-
-.settings-modal li { padding: 5px 0 !important; cursor: initial; }
-.settings-modal li:hover {background-color: inherit !important; }
 
 .apps-modal {
   width: 290px;
@@ -453,6 +433,9 @@ hr {
   padding: 10px;
   z-index: 12;
   animation: scale .25s;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
 }
 .apps-modal li { padding: 5px 10px; font-size: 12px !important;}
 /******************************/

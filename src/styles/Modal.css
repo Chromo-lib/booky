@@ -6,7 +6,10 @@
   height: 100%;
   background-color: var(--dark-transparent);
   border-radius: 4px;
-  z-index: 11;
+  z-index: 99;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  -moz-backdrop-filter: blur(3px);
 }
 
 .modal form {
@@ -19,8 +22,6 @@
 
 .modal form div:first-child {
   justify-content:space-between;
-  border-bottom: 1px solid var(--dark-transparent);
-  padding-bottom: 10px;
 }
 
 .modal form h3 {

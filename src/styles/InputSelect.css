@@ -11,14 +11,15 @@
   position: absolute;
   top: 75px;
   left: 0;
-  background-color: #3d3d3d;
+  background: var(--main-color);
   overflow-y: auto;
   box-shadow: var(--light-box-shad);
+  z-index: 999999;
 }
 
 .input-select ul li {
   padding: 10px !important;
-  font-size: 12px;
+  font-size: 12px;  
   color: var(--white);
   border-bottom: 1px solid var(--dark-transparent);
   text-align: left;
