@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import FormTimeZone from './FormTimeZone';
-import useClickAway from '../../hooks/useClickAway';
 import FormImageBG from './FormImageBG';
 import Switch from '../../components/Switch';
 import Sidebar from '../../components/Sidebar';
@@ -15,7 +14,6 @@ export default function Settings ({ SettingsModel, onSettingsChange }) {
 
   return (
     <Sidebar>
-
       <ul className="w-100">
         {Object.keys(SettingsModel).map(s => {
           if (s !== 'timeZone' && s !== 'searchEngineName') {
@@ -35,7 +33,6 @@ export default function Settings ({ SettingsModel, onSettingsChange }) {
       <hr />
 
       <FormTimeZone />
-
     </Sidebar>
   );
 }

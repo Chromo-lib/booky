@@ -30,7 +30,7 @@ label {
 
 .nav__toggle {
   position: absolute;
-  top: 4.5em;
+  top: 1em;
   left: 0;
   background-color: var(--light);
   color: var(--main-color);
@@ -42,7 +42,10 @@ label {
 
 .nav__toggle:hover {background-color: var(--white);}
 
-.sidebar-content li {text-transform: uppercase !important;}
+.sidebar-content li {
+  cursor: initial;
+  font-size: 14px; text-transform: uppercase !important; letter-spacing: 1px;}
+.sidebar-content li:hover {opacity: 1 !important;}
 
 /* Navigation open styles */
 .nav-open {

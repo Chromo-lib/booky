@@ -16,7 +16,7 @@
 }
 
 @font-face {
-  font-family: 'Segoe-UI.ttf';
+  font-family: 'Cairo';
   src: url(../assets/Cairo-Regular.ttf);
 }
 
@@ -24,7 +24,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'Segoe-UI.ttf';
+  font-family: 'Cairo', Arial, Helvetica, sans-serif;
   scrollbar-width: thin;
   scrollbar-color: #393939 #5c5c5c;
 }
