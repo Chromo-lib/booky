@@ -9,7 +9,6 @@
   display: inline-flex !important;
     justify-content: flex-start !important;
     padding-left: 10px !important;
-  border-radius: 0;
   background-color: #ffffff;
   white-space: nowrap;
 }

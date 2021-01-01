@@ -120,6 +120,7 @@ select {
   font-weight: 400;
   line-height: 1.5;
   border: 0;
+  border-radius: 4px;
   outline: none !important;
 }
 
@@ -142,10 +143,11 @@ button {
   border-radius: 4px;
   font-weight: 600;
   line-height: 24px;
-  padding: 5px 24px;
+  padding: 7px 24px;
   border: 0;
   background: var(--orange);
   color: var(--main-color);
+  font-size: 16px;
   outline: none !important;
 }
 
@@ -276,6 +278,8 @@ hr {
 .py-3 {
   padding: 30px;
 }
+
+.mx-auto {margin: auto}
 
 .m-0 {
   margin: 0
@@ -456,14 +460,15 @@ hr {
 /************ Scroll **************/
 ::-webkit-scrollbar {
   width: 5px;
+  background: inherit;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--orange);
+  background: #0000004d;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--main-color);
+  background: #000000bb;
 }
 
 @media screen and (max-width: 978px) {

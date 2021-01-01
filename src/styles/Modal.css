@@ -25,6 +25,7 @@
 }
 
 .modal form h3 {
+  margin: auto;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 16px;
