@@ -16,7 +16,7 @@
 </p>
 
 # Capture
-![](captures/capture.png)
+![](capture.png)
 
 # License
 MIT
