@@ -67,6 +67,8 @@ h2 {font-size: clamp(1.5rem, 1.29rem + 1.07vw, 2.25rem);}
 
 hr { width: 100%; border-color: var(--gray); margin: 15px 0;}
 
+small {font-size: 12px; color: var(--gray);}
+
 a {text-decoration: none; color: inherit;}
 form {min-width: 30%; text-align: left;}
 label {text-transform: capitalize;}

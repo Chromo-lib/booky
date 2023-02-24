@@ -11,6 +11,7 @@ const formSearchEL = document.getElementById('form-search')!;
 
 const dateEL = document.getElementById('date')!;
 const timeEL = document.getElementById('time')!;
+const timeZoneEL = document.getElementById('timezone')!;
 
 const btnDeleteBookmarkEL = document.getElementById('btn-delete-bk')! as HTMLButtonElement;
 const btnResetSettingsEL = document.getElementById('btn-reset-settings')! as HTMLButtonElement;
@@ -23,6 +24,7 @@ export {
   btnDeleteBookmarkEL,
   timeEL,
   dateEL,
+  timeZoneEL,
   formChangeBgEL,
   formCrudBookmarkEL,
   formSearchEL,

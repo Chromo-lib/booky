@@ -1,4 +1,4 @@
-import { dateEL, timeEL } from "../constants/defaults";
+import { dateEL, timeEL, timeZoneEL } from "../constants/defaults";
 import { ISettings } from "../types";
 
 const defaultOptions: any = {
@@ -22,16 +22,16 @@ function getSystemTimeZone() {
 }
 
 function getDateAndTime() {
+  const zone = getSystemTimeZone();
   try {
-    const zone = getSystemTimeZone();
     let options = { timeZone: zone, ...defaultOptions };
     let formatter: any = new Intl.DateTimeFormat('en-US', options); // => "8/18/2020, 12:56:18 AM"
     formatter = formatter.format(new Date()).split(', '); // => ["8/18/2020, 12:56:18 AM"]
-    return { date: new Date(formatter[0]).toDateString(), time: formatter[1] };
+    return { date: new Date(formatter[0]).toDateString(), time: formatter[1], zone };
   } catch (error) {
     let defRegion: any = new Intl.DateTimeFormat('en-US', defaultOptions);
     defRegion = defRegion.format(new Date()).split(', '); // => ["8/18/2020, 12:56:18 AM"]
-    return { date: new Date(defRegion[0]).toDateString(), time: defRegion[1] };
+    return { date: new Date(defRegion[0]).toDateString(), time: defRegion[1], zone };
   }
 }
 
@@ -40,8 +40,10 @@ export default function setDateAndTime(settings: ISettings) {
 
   if (!settings.showDate) dateEL.classList.add('d-none');
   if (!settings.showTime) timeEL.classList.add('d-none');
+  if (!settings.showTimeZone) timeZoneEL.classList.add('d-none');
 
   if (settings.showDate) dateEL.textContent = timeAndDate.date;
+  if (settings.showTimeZone) timeZoneEL.textContent = timeAndDate.zone;
 
   if (settings.showTime) {
     timeEL.textContent = timeAndDate.time;

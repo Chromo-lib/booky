@@ -99,29 +99,36 @@
           </select>
         </div>
 
-        <div class="w-100 d-flex align-center mb-1">
-          <input type="checkbox" class="mr-2" name="showDate" id="showDate" checked>
-          <label for="showDate">Show date</label>
-        </div>
+        <div class="w-100 grid-2">
+          <div class="w-100 d-flex align-center mb-1">
+            <input type="checkbox" class="mr-1" name="showDate" id="showDate" checked>
+            <label for="showDate">date</label>
+          </div>         
 
-        <div class="w-100 d-flex align-center mb-1">
-          <input type="checkbox" class="mr-2" name="showTime" id="showTime" checked>
-          <label for="showTime">Show time</label>
-        </div>
+          <div class="w-100 d-flex align-center mb-1">
+            <input type="checkbox" class="mr-1" name="showBookmarks" id="showBookmarks" checked>
+            <label for="showBookmarks">bookmarks</label>
+          </div>
 
-        <div class="w-100 d-flex align-center mb-1">
-          <input type="checkbox" class="mr-2" name="showBookmarks" id="showBookmarks" checked>
-          <label for="showBookmarks">Show bookmarks</label>
-        </div>
+          <div class="w-100 d-flex align-center mb-1">
+            <input type="checkbox" class="mr-1" name="showTime" id="showTime" checked>
+            <label for="showTime">time</label>
+          </div>
 
-        <div class="w-100 d-flex align-center mb-1">
-          <input type="checkbox" class="mr-2" name="showSearchEngine" id="showSearchEngine" checked>
-          <label for="showSearchEngine">Show earch engine</label>
-        </div>
+          <div class="w-100 d-flex align-center mb-1">
+            <input type="checkbox" class="mr-1" name="showSearchEngine" id="showSearchEngine" checked>
+            <label for="showSearchEngine">Search engine</label>
+          </div>
 
-        <div class="w-100 d-flex align-center mb-1">
-          <input type="checkbox" class="mr-2" name="showDefaultApp" id="showDefaultApp" checked>
-          <label for="showDefaultApp">show default apps</label>
+          <div class="w-100 d-flex align-center mb-1">
+            <input type="checkbox" class="mr-1" name="showDefaultApp" id="showDefaultApp" checked>
+            <label for="showDefaultApp">Default apps</label>
+          </div>
+
+          <div class="w-100 d-flex align-center mb-1">
+            <input type="checkbox" class="mr-1" name="showTimeZone" id="showTimeZone" checked>
+            <label for="showTimeZone">Time zone</label>
+          </div>
         </div>
 
         <div class="grid-2">
@@ -175,8 +182,9 @@
     </div>
  
      <div>
-       <h2 class="m-0" id="time">10:15 AM</h2>
-       <p class="m-0" id="date">Thu Feb 01 2022</p>
+        <small id="timezone"></small>
+        <h2 class="m-0" id="time">10:15 AM</h2>
+        <p class="m-0" id="date">Thu Feb 01 2022</p>
      </div>
   </footer>
 

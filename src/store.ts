@@ -31,6 +31,7 @@ const initialState: IState = {
     showTime: true,
     showSearchEngine: true,
     showBookmarks: true,
+    showTimeZone: true,
     showDefaultApp: true,
     searchEngine: 'Duckduckgo',
     ...JSON.parse(localSettings),
