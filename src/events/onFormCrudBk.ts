@@ -16,7 +16,7 @@ export default async function onFormCrudBk(e: any) {
   if (bookmarksFolder) {
     if (isAddOp) {
       const bk = await chrome.bookmarks.create({ url: formData.url, title: formData.title, parentId: bookmarksFolder.id });
-      grid.add(gridItem(bk.title, formData.title, bk.id));
+      grid.add(gridItem(bk.title, formData.url, bk.id));
     }
     else {
       chrome.bookmarks.update(formData.id, { url: formData.url, title: formData.title });

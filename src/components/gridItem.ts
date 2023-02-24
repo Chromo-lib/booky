@@ -13,7 +13,7 @@ export default function gridItem(title: string, url: string, id: string) {
   </button>`;
 
   wrapper.innerHTML += `<div class="item" tabIndex="0" aria-disabled="false" id="${id}">
-  <a class="item-content" href="${url}" title="${title}" rel="noopener noreferrer">
+  <a class="item-content h-align" href="${url}" title="${title}" rel="noopener noreferrer">
     <img src="${href}" alt="${title}" />
     <p>${title}</p>
   </a>

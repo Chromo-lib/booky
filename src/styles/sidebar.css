@@ -21,14 +21,7 @@
   overflow: auto;
 }
 
-.nav__toggle {
-  position: absolute;
-  top: 1em;
-  left: 0;
-  transform: translateX(-100%);
-  padding: 1em .5em;
-  border-radius: .25em 0 0 .25em;
-}
+
 
 .nav-open {
   transform: translateX(0);

@@ -11,6 +11,6 @@ export default function buttonPlus() {
   }
 
   wrapper.title = "Double click to add new bookmark"
-  wrapper.classList.add('item', 'align-start')
+  wrapper.classList.add('item', 'h-align')
   return wrapper
 }

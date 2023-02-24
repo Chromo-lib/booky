@@ -12,27 +12,27 @@
 </head>
 
 <body>
-  <p class="mb-0" id="date">Thu Feb 01 2022</p>
-  <h1 class="m-0 mb-3" id="time">10:15 AM</h1>
-
-  <form class="mb-3 d-flex align-center" id="form-search">
-    <input type="search" class="bg-transparent mr-1" name="form-search" id="form-search" placeholder="search.."
-      required>
-
-    <button type="submit" class="btn bg-transparent">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-        <path
-          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-      </svg>
-    </button>
-  </form>
-
-  <div class="w-100 h-100 m-0 grid"></div>
+  <main class="w-100 h-100 h-align">
+    <form class="mb-2 d-flex br8" id="form-search">
+      <input type="search" class="br-0 bg-transparent" name="form-search" id="form-search" placeholder="search.." required>
+  
+      <button type="submit" class="btn br-0 bg-transparent">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg>
+      </button>
+    </form>
+  
+    <p></p>
+  
+    <div class="w-100 h-100 m-0 grid"></div>
+  </main>
 
   <div class="modal">
     <button class="btn btn-close-modal bg-white">x</button>
 
-    <form class="modal-content scale" id="form-bookmark">
+    <form class="modal-content bg-transparent backdrop-blur scale" id="form-bookmark">
       <input type="text" name="id" id="id" hidden />
 
       <div class="form-control mb-2">
@@ -54,12 +54,7 @@
 
   <nav class="h-100 nav pr-0">
     <div>
-      <button class="nav__toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-          <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-        </svg>
-      </button>
+      
     </div>
 
     <div class="w-100 h-100 sidebar-content">
@@ -141,32 +136,49 @@
     </div>
   </nav>
 
-  <div id="default-apps" title="Default Apps">
-    <a class="btn" id="btn-open-default-apps">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-      </svg>
-    </a>
 
-    <ul class="d-none scale">
-      <li><a rel="noopener noreferrer" target="_blank" href="https://outlook.com">outlook</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://onedrive.live.com">onedrive</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://www.office.com/launch/excel">excel</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://www.office.com/launch/word">word</a></li>
-      <li><hr class="m-0"></li>
-      <li><hr class="m-0"></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://mail.google.com">gmail</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://news.google.com">google news</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://drive.google.com">google drive</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://maps.google.com">google maps</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://translate.google.com">google translate</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://www.google.com/calendar">google calendar</a></li>
-      <li><hr class="m-0"></li>
-      <li><hr class="m-0"></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://meet.google.com">google meet</a></li>
-      <li><a rel="noopener noreferrer" target="_blank" href="https://talk.brave.com/widget">talk brave</a></li>
-    </ul>
-  </div>
+  <footer class="w-100 d-flex justify-between align-center p-3">
+    <div class="d-flex align-center">
+       <div id="default-apps" title="Default Apps">
+         <a class="btn" id="btn-open-default-apps">
+           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+           </svg>
+         </a>
+     
+         <ul class="d-none scale">
+           <li><a rel="noopener noreferrer" target="_blank" href="https://outlook.com">outlook</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://onedrive.live.com">onedrive</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://www.office.com/launch/excel">excel</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://www.office.com/launch/word">word</a></li>
+           <li><hr class="m-0"></li>
+           <li><hr class="m-0"></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://mail.google.com">gmail</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://news.google.com">google news</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://drive.google.com">google drive</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://maps.google.com">google maps</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://translate.google.com">google translate</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://www.google.com/calendar">google calendar</a></li>
+           <li><hr class="m-0"></li>
+           <li><hr class="m-0"></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://meet.google.com">google meet</a></li>
+           <li><a rel="noopener noreferrer" target="_blank" href="https://talk.brave.com/widget">talk brave</a></li>
+         </ul>
+       </div>
+ 
+       <button class="nav__toggle bg-nocolor border-0">
+         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+           <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+           <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+         </svg>
+       </button>
+    </div>
+ 
+     <div>
+       <h2 class="m-0" id="time">10:15 AM</h2>
+       <p class="m-0" id="date">Thu Feb 01 2022</p>
+     </div>
+  </footer>
 
   <script type="module" src="/main.ts" defer></script>
 </body>
