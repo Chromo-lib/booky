@@ -6,7 +6,7 @@ export default function setTabBg(bgOptions: IBgOptions) {
   
   const base64String = localStorage.getItem('wallpaper');
 
-  if (base64String && bgOptions) {
+  if (base64String && bgOptions && bgOptions.image) {
     document.body.style.background = bgOptions.widthFiler
       ? `linear-gradient(135deg,rgb(33 37 41 / 65%),rgb(33 37 41 / 72%)),url(data:image/png;base64,${base64String})`
       : `url(data:image/png;base64,${base64String})`;

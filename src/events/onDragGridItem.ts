@@ -1,4 +1,4 @@
-export default function onDrag(item: Muuri.Item, event?: any)  {
+export default function onDragGridItem(item: Muuri.Item, event?: any)  {
   const element = item.getElement() as HTMLDivElement;  
   const link = element.querySelector('a') as HTMLAnchorElement;  
 

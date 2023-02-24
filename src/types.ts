@@ -5,11 +5,12 @@ export type ISettings = {
   showTime: boolean
   showSearchEngine: boolean
   showBookmarks: boolean
-  showDefaultApp:boolean
+  showDefaultApp: boolean
   searchEngine: string
 }
 
 export type IBgOptions = {
+  image?: boolean
   widthBlur: boolean
   widthFiler: boolean
 }

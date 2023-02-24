@@ -2,7 +2,7 @@ import setTabBg from "../utils/setTabBg";
 
 const imgTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
-export default function onChangeBg(e: any) {
+export default function onFormBg(e: any) {
   e.preventDefault();
 
   const file = e.target.elements[0].files[0];
@@ -16,9 +16,9 @@ export default function onChangeBg(e: any) {
       const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
       localStorage.setItem('wallpaper', base64String);
 
-      setTabBg({ widthBlur, widthFiler })      
+      setTabBg({ widthBlur, widthFiler, image: true })
     }
   };
-  reader.readAsDataURL(file)
 
+  reader.readAsDataURL(file);
 }

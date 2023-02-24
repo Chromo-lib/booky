@@ -1,11 +1,6 @@
 import store from "../store";
 
-export default function onSwap(data: {
-  item: Muuri.Item;
-  fromIndex: number;
-  toIndex: number;
-  action: "move" | "swap";
-}) {
+export default function onSwapGirdItem(data: { item: Muuri.Item; fromIndex: number; toIndex: number; action: "move" | "swap"; }) {
   if (data && data.item && data.action === 'swap') {
     const grid = store.getState().grid;
 

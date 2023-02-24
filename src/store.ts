@@ -31,11 +31,12 @@ const initialState: IState = {
     showTime: true,
     showSearchEngine: true,
     showBookmarks: true,
-    showDefaultApp:true,
+    showDefaultApp: true,
     searchEngine: 'Duckduckgo',
     ...JSON.parse(localSettings),
   },
   bgOptions: {
+    image: false,
     widthBlur: true,
     widthFiler: true,
     ...JSON.parse(localbgOptionss)

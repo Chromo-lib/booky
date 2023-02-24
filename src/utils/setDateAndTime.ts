@@ -36,7 +36,7 @@ function getDateAndTime() {
 }
 
 export default function setDateAndTime(settings: ISettings) {
-  const timeAndDate = getDateAndTime();
+  let timeAndDate = getDateAndTime();
 
   if (!settings.showDate) dateEL.classList.add('d-none');
   if (!settings.showTime) timeEL.classList.add('d-none');
@@ -48,11 +48,11 @@ export default function setDateAndTime(settings: ISettings) {
     timeEL.classList.remove('d-none')
 
     return setInterval(() => {
+      timeAndDate = getDateAndTime();
       dateEL.textContent = timeAndDate.date;
       timeEL.textContent = timeAndDate.time;
-    }, 30000);
+    }, 20000);
   }
 
   return ''
-
 }

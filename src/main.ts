@@ -2,22 +2,22 @@ import Muuri from 'muuri'
 import buttonPlus from './components/buttonPlus';
 import gridItem from './components/gridItem';
 import defaultBks from './utils/defaultBks';
-import onAddOrUpdate from './events/onAddOrUpdate';
+import onFormCrudBk from './events/onFormCrudBk';
 import onDeleteBk from './events/onDeleteBk';
-import onDrag from './events/onDrag';
+import onDragGridItem from './events/onDragGridItem';
 import onGrid from './events/onGrid';
 import onToggleModal from './events/onToggleModal';
 import store from './store';
 import getBkFolder from './utils/getBkFolder';
-import onSwap from './events/onSwap';
-import { btnDeleteBookmarkEL, btnResetSettingsEL, defaultAppsEL, formChangeBgEL, formCrudBookmarkEL, formSearchEL, formSettingsEL, gridBookmarksEL } from './constants/defaults';
+import onSwapGirdItem from './events/onSwapGirdItem';
+import { btnDeleteBookmarkEL, btnResetBgOptionsEL, btnResetSettingsEL, defaultAppsEL, formChangeBgEL, formCrudBookmarkEL, formSearchEL, formSettingsEL, gridBookmarksEL } from './constants/defaults';
 import setDateAndTime from './utils/setDateAndTime';
-import onChangeBg from './events/onChangeBg';
+import onFormBg from './events/onFormBg';
 import onToggleSidebar from './events/onToggleSidebar';
-import onSearch from './events/onSearch';
-import onResetSettings from './events/onResetSettings';
+import onFormSearch from './events/onFormSearch';
+import onReset from './events/onReset';
 import setTabBg from './utils/setTabBg';
-import onSettings from './events/onSettings';
+import onFormSettings from './events/onFormSettings';
 import onModalApps from './events/onModalApps';
 
 import './sidebar.css';
@@ -46,10 +46,8 @@ function init() {
   if (settings.showSearchEngine === true) {
     const select = formSettingsEL.querySelector('select')! as HTMLSelectElement;
     select.value = settings.searchEngine;
-
     formSearchEL.querySelector('input')!.placeholder! = settings.searchEngine;
   }
-console.log(settings);
 
   defaultAppsEL.classList[settings.showDefaultApp ? 'remove' : 'add']('d-none');
   gridBookmarksEL.classList[settings.showBookmarks ? 'remove' : 'add']('d-none');
@@ -83,20 +81,22 @@ const onLoad = async () => {
       });
     }
 
-    grid.on('dragMove', onDrag);
-    grid.on('dragEnd', onDrag);
-    grid.on('move', onSwap);
+    grid.on('dragMove', onDragGridItem);
+    grid.on('dragEnd', onDragGridItem);
+    grid.on('move', onSwapGirdItem);
     gridBookmarksEL?.addEventListener('click', onGrid);
     btnDeleteBookmarkEL.addEventListener('click', onDeleteBk)
-    formCrudBookmarkEL.addEventListener('submit', onAddOrUpdate)
+    formCrudBookmarkEL.addEventListener('submit', onFormCrudBk)
   }
 
-  formSettingsEL.addEventListener('submit', onSettings, false);
-  formChangeBgEL.addEventListener('submit', onChangeBg, false);
-  formSearchEL.addEventListener('submit', onSearch, false);
+  formSettingsEL.addEventListener('submit', onFormSettings, false);
+  formChangeBgEL.addEventListener('submit', onFormBg, false);
+  formSearchEL.addEventListener('submit', onFormSearch, false);
+
+  btnResetSettingsEL.addEventListener('click', onReset);
+  btnResetBgOptionsEL.addEventListener('click', onReset);
 
   defaultAppsEL.addEventListener('click', onModalApps, false);
-  btnResetSettingsEL.addEventListener('click', onResetSettings);
   document.querySelector('.nav__toggle')?.addEventListener('click', onToggleSidebar);
   document.querySelector('.btn-close-modal')?.addEventListener('click', onToggleModal);
 }
@@ -104,18 +104,21 @@ const onLoad = async () => {
 const onbeforeunload = () => {
   if (settings.showBookmarks) {
     const grid: Muuri = store.getState().grid;
-    grid.off('dragMove', onDrag);
-    grid.off('dragEnd', onDrag);
-    grid.off('move', onSwap);
+    grid.off('dragMove', onDragGridItem);
+    grid.off('dragEnd', onDragGridItem);
+    grid.off('move', onSwapGirdItem);
     gridBookmarksEL?.removeEventListener('click', onGrid);
     btnDeleteBookmarkEL.removeEventListener('click', onDeleteBk);
-    formCrudBookmarkEL.removeEventListener('submit', onAddOrUpdate);
+    formCrudBookmarkEL.removeEventListener('submit', onFormCrudBk);
   }
 
-  clearInterval(idTimer)
+  clearInterval(idTimer);
 
-  formSearchEL.removeEventListener('submit', onSearch);
-  formChangeBgEL.removeEventListener('submit', onChangeBg);
+  btnResetSettingsEL.removeEventListener('click', onReset);
+  btnResetBgOptionsEL.removeEventListener('click', onReset);
+
+  formSearchEL.removeEventListener('submit', onFormSearch);
+  formChangeBgEL.removeEventListener('submit', onFormBg);
   defaultAppsEL.removeEventListener('click', onModalApps);
   document.querySelector('.nav__toggle')?.removeEventListener('click', onToggleSidebar);
   document.querySelector('.btn-close-modal')?.removeEventListener('click', onToggleModal)

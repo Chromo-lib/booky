@@ -3,7 +3,7 @@ import { formCrudBookmarkEL } from "../constants/defaults";
 import store from "../store";
 import onToggleModal from "./onToggleModal";
 
-export default async function onAddOrUpdate(e: any) {
+export default async function onFormCrudBk(e: any) {
   e.preventDefault();
 
   const grid = store.getState().grid;

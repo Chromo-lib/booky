@@ -1,6 +1,6 @@
 import store from "../store";
 
-export default function onSettings(e: any) {
+export default function onFormSettings(e: any) {
   e.preventDefault()
 
   const searchEngine = e.target.elements[0].value;

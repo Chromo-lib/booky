@@ -14,6 +14,7 @@ const timeEL = document.getElementById('time')!;
 
 const btnDeleteBookmarkEL = document.getElementById('btn-delete-bk')! as HTMLButtonElement;
 const btnResetSettingsEL = document.getElementById('btn-reset-settings')! as HTMLButtonElement;
+const btnResetBgOptionsEL = document.getElementById('btn-reset-bgoptions')! as HTMLButtonElement;
 
 
 export {
@@ -28,5 +29,6 @@ export {
   formSettingsEL,
   btnResetSettingsEL,
   messageEL,
-  defaultAppsEL
+  defaultAppsEL,
+  btnResetBgOptionsEL
 }

@@ -1,6 +1,6 @@
 import store from "../store";
 
-export default function onSearch(e: any) {
+export default function onFormSearch(e: any) {
   e.preventDefault();
 
   const query = e.target.elements[0].value
