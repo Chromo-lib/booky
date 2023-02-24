@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/48.png">
+  <meta name="author" content="Haikel Fazzani">
+  <title>New Tab</title>
+</head>
+
+<body>
+  <p class="mb-0" id="date">Thu Feb 01 2022</p>
+  <h1 class="m-0 mb-3" id="time">10:15 AM</h1>
+
+  <form class="mb-3 d-flex align-center" id="form-search">
+    <input type="search" class="bg-transparent mr-1" name="form-search" id="form-search" placeholder="search.."
+      required>
+
+    <button type="submit" class="btn bg-transparent">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+      </svg>
+    </button>
+  </form>
+
+  <div class="w-100 h-100 m-0 grid"></div>
+
+  <div class="modal">
+    <button class="btn btn-close-modal bg-white">x</button>
+
+    <form class="modal-content scale" id="form-bookmark">
+      <input type="text" name="id" id="id" hidden />
+
+      <div class="form-control mb-2">
+        <label for="title">title</label>
+        <input class="mt-1" type="text" name="title" id="title" placeholder="google" required />
+      </div>
+
+      <div class="form-control mb-2">
+        <label for="url">Website</label>
+        <input class="mt-1" type="url" name="url" id="url" placeholder="https://google.com" required />
+      </div>
+
+      <div class="w-100 d-flex justify-between">        
+        <button class="btn bg-red" type="button" id="btn-delete-bk">Delete</button>
+        <button class="btn bg-green" type="submit">add</button>
+      </div>
+    </form>
+  </div>
+
+  <nav class="nav pr-0">
+    <div>
+      <button class="nav__toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+          <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="sidebar-content">
+      <form id="form-change-bg">
+        <div class="form-control mb-2">
+          <label for="bg">Choose a background image</label>
+          <input class="mt-1" type="file" name="bg" id="bg" accept="image/webp,image/jpg,image/jpeg, image/png"
+            required>
+        </div>
+
+        <div class="w-100 d-flex align-center mb-1">
+          <input type="checkbox" class="mr-2" name="widthFiler" id="widthFiler" checked>
+          <label for="widthFiler">With mask filter</label>
+        </div>
+
+        <div class="w-100 d-flex align-center mb-1">
+          <input type="checkbox" class="mr-2" name="widthBlur" id="widthBlur" checked>
+          <label for="widthBlur">With blur</label>
+        </div>
+
+        <button type="submit" class="w-100 btn bg-green">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="mr-1" viewBox="0 0 16 16">
+            <path d="M9.302 1.256a1.5 1.5 0 0 0-2.604 0l-1.704 2.98a.5.5 0 0 0 .869.497l1.703-2.981a.5.5 0 0 1 .868 0l2.54 4.444-1.256-.337a.5.5 0 1 0-.26.966l2.415.647a.5.5 0 0 0 .613-.353l.647-2.415a.5.5 0 1 0-.966-.259l-.333 1.242-2.532-4.431zM2.973 7.773l-1.255.337a.5.5 0 1 1-.26-.966l2.416-.647a.5.5 0 0 1 .612.353l.647 2.415a.5.5 0 0 1-.966.259l-.333-1.242-2.545 4.454a.5.5 0 0 0 .434.748H5a.5.5 0 0 1 0 1H1.723A1.5 1.5 0 0 1 .421 12.24l2.552-4.467zm10.89 1.463a.5.5 0 1 0-.868.496l1.716 3.004a.5.5 0 0 1-.434.748h-5.57l.647-.646a.5.5 0 1 0-.708-.707l-1.5 1.5a.498.498 0 0 0 0 .707l1.5 1.5a.5.5 0 1 0 .708-.707l-.647-.647h5.57a1.5 1.5 0 0 0 1.302-2.244l-1.716-3.004z"/>
+          </svg>change background
+        </button>
+      </form>
+
+      <hr>
+
+      <form id="form-settings">
+        <div class="from-control mb-2">
+          <label for="searchEngine">Choose a search engine</label>
+          <select class="w-100 bg-transparent mt-1" name="searchEngine" id="searchEngine">
+            <option value="Duckduckgo" selected>Duckduckgo</option>
+            <option value="Google">Google</option>
+            <option value="Bing">Bing</option>
+            <option value="Yahoo">Yahoo</option>
+            <option value="Yandex">Yandex</option>
+            <option value="Baidu">Baidu</option>
+            <option value="Naver">Naver</option>
+            <option value="Aol">Aol</option>
+            <option value="You">You</option>
+          </select>
+        </div>
+
+        <div class="w-100 d-flex align-center mb-1">
+          <input type="checkbox" class="mr-2" name="showDate" id="showDate" checked>
+          <label for="showDate">Show date</label>
+        </div>
+
+        <div class="w-100 d-flex align-center mb-1">
+          <input type="checkbox" class="mr-2" name="showTime" id="showTime" checked>
+          <label for="showTime">Show time</label>
+        </div>
+
+        <div class="w-100 d-flex align-center mb-1">
+          <input type="checkbox" class="mr-2" name="showBookmarks" id="showBookmarks" checked>
+          <label for="showBookmarks">Show bookmarks</label>
+        </div>
+
+        <div class="w-100 d-flex align-center mb-1">
+          <input type="checkbox" class="mr-2" name="showSearchEngine" id="showSearchEngine" checked>
+          <label for="showSearchEngine">Show earch engine</label>
+        </div>
+
+        <div class="w-100 d-flex align-center mb-1">
+          <input type="checkbox" class="mr-2" name="showDefaultApp" id="showDefaultApp" checked>
+          <label for="showDefaultApp">show default apps</label>
+        </div>
+
+        <button type="submit" class="w-100 btn bg-green">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" class="mr-1">
+            <path d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v7.793L4.854 6.646a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 0 0-.708-.708L8.5 9.293V1.5z"/>
+          </svg>save settings
+        </button>
+      </form>
+
+      <hr>
+
+      <p class="btn message d-none"></p>
+
+      <button id="btn-reset-settings" class="btn bg-red">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" class="mr-1">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </svg>reset settings
+      </button>
+    </div>
+  </nav>
+
+  <div id="default-apps" title="Default Apps">
+    <a class="btn" id="btn-open-default-apps">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+      </svg>
+    </a>
+
+    <ul class="d-none scale">
+      <li><a rel="noopener noreferrer" target="_blank" href="https://outlook.com">outlook</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://onedrive.live.com">onedrive</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://www.office.com/launch/excel">excel</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://www.office.com/launch/word">word</a></li>
+      <li><hr class="m-0"></li>
+      <li><hr class="m-0"></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://mail.google.com">gmail</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://news.google.com">google news</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://drive.google.com">google drive</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://maps.google.com">google maps</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://translate.google.com">google translate</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://www.google.com/calendar">google calendar</a></li>
+      <li><hr class="m-0"></li>
+      <li><hr class="m-0"></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://meet.google.com">google meet</a></li>
+      <li><a rel="noopener noreferrer" target="_blank" href="https://talk.brave.com/widget">talk brave</a></li>
+    </ul>
+  </div>
+
+  <script type="module" src="/main.ts" defer></script>
+</body>
+
+</html>

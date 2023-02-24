@@ -1,31 +1,24 @@
 {
-  "name": "booky",
+  "name": "mirror",
   "private": true,
-  "description": "Nice and modern new tab page for most modern browsers.",
-  "license": "BSD-3-Clause",
-  "version": "1.1.0",
-  "dependencies": {
-    "easy-peasy": "^3.3.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-scripts": "3.4.3"
-  },
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "dev": "NODE_ENV=dev vite build --watch",
+    "build": "NODE_ENV=dev tsc && vite build",
+    "build:firefox": "NODE_ENV=production BROWSER=firefox vite build",
+    "build:chrome": "NODE_ENV=production BROWSER=chrome vite build",
+    "zip:chrome": "(cd dist; zip -r ../chrome.zip .)",
+    "zip:firefox": "(cd dist; zip -r ../firefox.zip .)"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@types/chrome": "^0.0.217",
+    "@types/node": "^18.14.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version"
-    ]
+  "dependencies": {
+    "muuri": "^0.9.5",
+    "staten": "^0.1.1"
   }
 }

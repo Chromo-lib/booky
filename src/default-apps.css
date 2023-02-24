@@ -1,0 +1,21 @@
+#default-apps{
+  position: fixed;
+  top: 15px;
+  left: 15px;
+}
+
+#default-apps ul {
+  width: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  background-color: var(--transparent);  
+  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, .2), 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12);
+  transition: all 0.25s;
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+}
+
+ul {list-style: none; padding: 5px; margin: 0;}
+li {padding: 8px 15px;}
+li a { display: inline-block; word-break: keep-all; text-transform: capitalize;}
