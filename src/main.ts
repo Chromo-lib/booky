@@ -1,7 +1,7 @@
 import Muuri from 'muuri'
 import buttonPlus from './components/buttonPlus';
 import gridItem from './components/gridItem';
-import defaultBks from './utils/defaultBks';
+import defaultBks from './constants/defaultBks';
 import onFormCrudBk from './events/onFormCrudBk';
 import onDeleteBk from './events/onDeleteBk';
 import onDragGridItem from './events/onDragGridItem';
@@ -20,9 +20,9 @@ import setTabBg from './utils/setTabBg';
 import onFormSettings from './events/onFormSettings';
 import onModalApps from './events/onModalApps';
 
-import './sidebar.css';
-import './default-apps.css';
-import './style.css';
+import './styles/sidebar.css';
+import './styles/default-apps.css';
+import './styles/style.css';
 
 let idTimer: any;
 const settings: any = store.getState().settings;
@@ -89,7 +89,7 @@ const onLoad = async () => {
     formCrudBookmarkEL.addEventListener('submit', onFormCrudBk)
   }
 
-  formSettingsEL.addEventListener('submit', onFormSettings, false);
+  formSettingsEL.addEventListener<"submit">('submit', onFormSettings, false);
   formChangeBgEL.addEventListener('submit', onFormBg, false);
   formSearchEL.addEventListener('submit', onFormSearch, false);
 

@@ -1,16 +1,9 @@
 import store from "../store";
+import getFormData from "../utils/getFormData";
 
 export default function onFormSettings(e: any) {
-  e.preventDefault()
-
-  const searchEngine = e.target.elements[0].value;
-  const showDate = e.target.elements[1].checked;
-  const showTime = e.target.elements[2].checked;
-  const showBookmarks = e.target.elements[3].checked;
-  const showSearchEngine = e.target.elements[4].checked;
-  const showDefaultApp = e.target.elements[5].checked;
-
-  store.actions.setSettings({ showDefaultApp, searchEngine, showSearchEngine, showBookmarks, showDate, showTime });
-
+  e.preventDefault();
+  const formData = getFormData(e.target)
+  store.actions.setSettings(formData);
   window.location.reload();
 }

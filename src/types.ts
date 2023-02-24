@@ -10,6 +10,7 @@ export type ISettings = {
 }
 
 export type IBgOptions = {
+  bg?: File | null
   image?: boolean
   widthBlur: boolean
   widthFiler: boolean

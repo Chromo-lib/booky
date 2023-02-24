@@ -36,6 +36,7 @@ const initialState: IState = {
     ...JSON.parse(localSettings),
   },
   bgOptions: {
+    bg: null,
     image: false,
     widthBlur: true,
     widthFiler: true,

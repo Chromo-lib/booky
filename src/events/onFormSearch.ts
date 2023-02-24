@@ -3,7 +3,7 @@ import store from "../store";
 export default function onFormSearch(e: any) {
   e.preventDefault();
 
-  const query = e.target.elements[0].value
+  const query = e.target.elements[0].value;
   const searchEngine = store.getState().settings.searchEngine;
 
   switch (searchEngine) {
