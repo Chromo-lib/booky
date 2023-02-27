@@ -15,6 +15,7 @@
     "256": "./icons/256.png"
   },
   "permissions": [
+    "activeTab",
     "bookmarks",
     "topSites",
     "<all_urls>",
@@ -22,5 +23,6 @@
   ],
   "browser_action": {
     "default_icon": "./icons/32.png"
-  }
+  },
+  "content_security_policy": "default-src *; style-src 'self' 'unsafe-inline'; script-src *"
 }

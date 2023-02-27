@@ -37,7 +37,11 @@ body {
   overflow-x: hidden;
 }
 
-#app,main {width: 100%; height: 100%; margin: auto; text-align: center;}
+main {width: 100%; height: 100%; margin: auto; text-align: center;}
+
+footer {
+  padding: 10px 30px;
+}
 
 /****************************************/
 .modal {
@@ -61,6 +65,9 @@ body {
 
 .btn-close-modal {position: absolute; top: 20px; right: calc(50% - 23px);}
 /*****************************************/
+ul {list-style: none; margin: 0; padding: 0;}
+li { padding: 8px 15px;}
+
 h1{font-size: clamp(3.75rem, 3.39rem + 3.79vw, 5rem);}
 
 h2 {font-size: clamp(1.5rem, 1.29rem + 1.07vw, 2.25rem);}
@@ -98,13 +105,14 @@ input[type="search"] {min-width: 320px;}
 /***********************************/
 .grid{
   position: relative;
+  min-height: 200px !important;
   width: calc(100vw - 30%) !important;
 }
 
 .item {
   position: absolute;
-  width: 100px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
   cursor: pointer;  
   transition: background-color .25s;
 }
@@ -139,8 +147,8 @@ input[type="search"] {min-width: 320px;}
   visibility: hidden;
   position: absolute;
   z-index: 999;
-  top: -15px;
-  right: -10px;
+  top: 0;
+  right: 0;
   border-radius: 50%;
   padding: 8px;
 }
@@ -189,6 +197,7 @@ input[type="search"] {min-width: 320px;}
 .bg-green {background-color: green;}
 .bg-red {background-color: #990000;}
 .bg-white {background-color: var(--white); color: var(--dark);}
+.bg-gray {background-color: var(--gray); }
 .bg-transparent {background-color: var(--transparent); color: var(--white);}
 .bg-nocolor {background-color:  transparent; }
 

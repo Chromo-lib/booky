@@ -1,4 +1,4 @@
-.nav {
+.sidebar {
   width: 320px;
   background: var(--transparent);
   position: fixed;
@@ -13,7 +13,7 @@
   border: 1px solid var(--gray);
 }
 
-.nav .sidebar-content {
+.sidebar-content {
   position: relative;
   padding: 20px;
   display: flex;
@@ -21,8 +21,6 @@
   overflow: auto;
 }
 
-
-
-.nav-open {
+.sidebar-open {
   transform: translateX(0);
 }

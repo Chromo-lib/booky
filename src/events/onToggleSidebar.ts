@@ -1,5 +1,5 @@
 export default function onToggleSidebar() {
-  const nav = document.querySelector('.nav')
-  if (nav?.classList.contains('nav-open')) nav?.classList.remove('nav-open')
-  else nav?.classList.add('nav-open')
+  const sidebar = document.querySelector('.sidebar')
+  if (sidebar?.classList.contains('sidebar-open')) sidebar?.classList.remove('sidebar-open')
+  else sidebar?.classList.add('sidebar-open')
 }

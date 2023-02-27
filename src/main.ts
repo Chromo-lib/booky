@@ -10,7 +10,8 @@ import onToggleModal from './events/onToggleModal';
 import store from './store';
 import getBkFolder from './utils/getBkFolder';
 import onSwapGirdItem from './events/onSwapGirdItem';
-import { btnDeleteBookmarkEL, btnResetBgOptionsEL, btnResetSettingsEL, defaultAppsEL, formChangeBgEL, formCrudBookmarkEL, formSearchEL, formSettingsEL, gridBookmarksEL } from './constants/defaults';
+import { btnDeleteBookmarkEL, btnResetBgOptionsEL, btnResetSettingsEL, formChangeBgEL, formCrudBookmarkEL, 
+  formSearchEL, formSettingsEL, gridBookmarksEL } from './constants/defaults';
 import setDateAndTime from './utils/setDateAndTime';
 import onFormBg from './events/onFormBg';
 import onToggleSidebar from './events/onToggleSidebar';
@@ -18,10 +19,9 @@ import onFormSearch from './events/onFormSearch';
 import onReset from './events/onReset';
 import setTabBg from './utils/setTabBg';
 import onFormSettings from './events/onFormSettings';
-import onModalApps from './events/onModalApps';
 
 import './styles/sidebar.css';
-import './styles/default-apps.css';
+import './styles/modal.css';
 import './styles/style.css';
 
 let idTimer: any;
@@ -49,7 +49,7 @@ function init() {
     formSearchEL.querySelector('input')!.placeholder! = settings.searchEngine;
   }
 
-  defaultAppsEL.classList[settings.showDefaultApp ? 'remove' : 'add']('d-none');
+
   gridBookmarksEL.classList[settings.showBookmarks ? 'remove' : 'add']('d-none');
   formSearchEL.classList[settings.showSearchEngine ? 'remove' : 'add']('d-none');
 
@@ -96,8 +96,7 @@ const onLoad = async () => {
   btnResetSettingsEL.addEventListener('click', onReset);
   btnResetBgOptionsEL.addEventListener('click', onReset);
 
-  defaultAppsEL.addEventListener('click', onModalApps, false);
-  document.querySelector('.nav__toggle')?.addEventListener('click', onToggleSidebar);
+  document.querySelector('.sidebar__toggle')?.addEventListener('click', onToggleSidebar);
   document.querySelector('.btn-close-modal')?.addEventListener('click', onToggleModal);
 }
 
@@ -119,7 +118,6 @@ const onbeforeunload = () => {
 
   formSearchEL.removeEventListener('submit', onFormSearch);
   formChangeBgEL.removeEventListener('submit', onFormBg);
-  defaultAppsEL.removeEventListener('click', onModalApps);
   document.querySelector('.nav__toggle')?.removeEventListener('click', onToggleSidebar);
   document.querySelector('.btn-close-modal')?.removeEventListener('click', onToggleModal)
 
