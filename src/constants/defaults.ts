@@ -1,5 +1,4 @@
 const modalEL = document.querySelector<HTMLDivElement>('.modal')!;
-const defaultAppsEL = document.getElementById('default-apps')! as HTMLDivElement;
 
 const gridBookmarksEL = document.querySelector<HTMLDivElement>('.grid')!;
 const messageEL = document.querySelector<HTMLDivElement>('.message')!;
@@ -31,6 +30,5 @@ export {
   formSettingsEL,
   btnResetSettingsEL,
   messageEL,
-  defaultAppsEL,
   btnResetBgOptionsEL
 }

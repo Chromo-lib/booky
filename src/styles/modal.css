@@ -1,12 +1,12 @@
 .modalDialog {
   position: fixed;
-  top: 40%;
+  top: 45%;
   right: 0;
   left: 0;
   padding: 20px;
-  z-index: 99999;
+  z-index: 99;
   opacity:0;
-  transition: opacity 100ms ease-in;
+  transition: opacity 50ms ease-in;
   pointer-events: none;
 }
 .modalDialog:target {
@@ -15,12 +15,19 @@
 }
 .modalDialog > ul {
   width: fit-content;  
-  max-height: 80%;
+  max-height: 50%;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 10px 0;
   overflow: auto;
   box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px 0px;
+}
+.modalDialog ul li {
+  width: 150px;
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .close {
   position: absolute;

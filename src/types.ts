@@ -7,6 +7,7 @@ export type ISettings = {
   showBookmarks: boolean
   showDefaultApp: boolean
   showTimeZone:boolean
+  showTopSites: boolean
   searchEngine: string
 }
 

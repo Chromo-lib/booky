@@ -10,55 +10,32 @@ import onToggleModal from './events/onToggleModal';
 import store from './store';
 import getBkFolder from './utils/getBkFolder';
 import onSwapGirdItem from './events/onSwapGirdItem';
-import { btnDeleteBookmarkEL, btnResetBgOptionsEL, btnResetSettingsEL, formChangeBgEL, formCrudBookmarkEL, 
-  formSearchEL, formSettingsEL, gridBookmarksEL } from './constants/defaults';
-import setDateAndTime from './utils/setDateAndTime';
+import {
+  btnDeleteBookmarkEL, btnResetBgOptionsEL, btnResetSettingsEL, formChangeBgEL, formCrudBookmarkEL,
+  formSearchEL, formSettingsEL, gridBookmarksEL
+} from './constants/defaults';
 import onFormBg from './events/onFormBg';
 import onToggleSidebar from './events/onToggleSidebar';
 import onFormSearch from './events/onFormSearch';
 import onReset from './events/onReset';
-import setTabBg from './utils/setTabBg';
 import onFormSettings from './events/onFormSettings';
+import setDateAndTime from './utils/setDateAndTime';
+import init from './init';
+import { IBgOptions, ISettings } from './types';
 
 import './styles/sidebar.css';
 import './styles/modal.css';
 import './styles/style.css';
 
 let idTimer: any;
-const settings: any = store.getState().settings;
-const bgOptions: any = store.getState().bgOptions;
+const settings: ISettings = store.getState().settings;
+const bgOptions: IBgOptions = store.getState().bgOptions;
 
-function init() {
-  idTimer = setDateAndTime(settings);
-
-  formSettingsEL.querySelectorAll('input[type="checkbox"]')
-    .forEach((el) => {
-      const e = (el as HTMLInputElement);
-      e.checked = settings[e.name];
-    });
-
-  formChangeBgEL.querySelectorAll('input[type="checkbox"]')
-    .forEach((el) => {
-      const e = (el as HTMLInputElement);
-      e.checked = bgOptions[e.name];
-    });
-
-  if (settings.showSearchEngine === true) {
-    const select = formSettingsEL.querySelector('select')! as HTMLSelectElement;
-    select.value = settings.searchEngine;
-    formSearchEL.querySelector('input')!.placeholder! = settings.searchEngine;
-  }
-
-
-  gridBookmarksEL.classList[settings.showBookmarks ? 'remove' : 'add']('d-none');
-  formSearchEL.classList[settings.showSearchEngine ? 'remove' : 'add']('d-none');
-
-  setTabBg(bgOptions);
-}
-
-init();
+init(settings, bgOptions);
 
 const onLoad = async () => {
+  idTimer = setDateAndTime(settings);
+
   if (settings.showBookmarks) {
     const grid: Muuri = store.getState().grid;
     const bookmarksFolder = await getBkFolder();
