@@ -40,9 +40,7 @@ body {
 
 main {width: 100%; height: 100%; margin: auto; text-align: center;}
 
-footer {
-  padding: 10px 20px;
-}
+footer { padding: 10px 20px;}
 
 /****************************************/
 .modal {
@@ -100,9 +98,7 @@ input[type="search"] {min-width: 320px;}
   text-transform: uppercase;  
 }
 
-.btn:hover,a:hover {
-  opacity: 0.9;
-}
+.btn:hover,a:hover { opacity: 0.9;}
 /***********************************/
 .grid{
   position: relative;
