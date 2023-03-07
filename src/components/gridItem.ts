@@ -1,10 +1,7 @@
-export default function gridItem(title: string, url: string, id: string) {
-  const wrapper = document.createElement('div')
-  const origin = new URL(url).origin.replace('https://', '');
+import faviconURL from "../utils/faviconURL";
 
-  const href = process.env.NODE_ENV === 'production'
-    ? 'chrome://favicon/size/64@1x/' + url
-    : 'https://www.google.com/s2/favicons?sz=64&domain_url=' + origin;
+export default function gridItem(title: string, url: string, id: string) {
+  const wrapper = document.createElement('div');
 
   wrapper.innerHTML = `<button class="btn bg-transparent" data-id="${id}">
   <svg width="16" height="16" xmlns="https://www.w3.org/2000/svg" stroke="white" id="${id}" data-id="${id}">
@@ -14,7 +11,7 @@ export default function gridItem(title: string, url: string, id: string) {
 
   wrapper.innerHTML += `<div class="item" tabIndex="0" aria-disabled="false" id="${id}">
   <a class="item-content h-align" href="${url}" title="${title}" rel="noopener noreferrer">
-    <img src="${href}" alt="${title}" />
+    <img src="${faviconURL(url)}" alt="${title}" />
     <p>${title}</p>
   </a>
 </div>`;

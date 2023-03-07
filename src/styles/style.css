@@ -8,6 +8,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 
+  --black:#262626;
   --dark:#383838;
   --white:#fff;
   --transparent:#24242459;
@@ -40,7 +41,7 @@ body {
 main {width: 100%; height: 100%; margin: auto; text-align: center;}
 
 footer {
-  padding: 10px 30px;
+  padding: 10px 20px;
 }
 
 /****************************************/
@@ -120,7 +121,7 @@ input[type="search"] {min-width: 320px;}
 .item img {
   background: var(--transparent);
   display: block;
-  padding: 15px;
+  padding: 20px;
   width: 74px;
   height: 74px;
   border-radius: 8px;
@@ -194,6 +195,7 @@ input[type="search"] {min-width: 320px;}
 
 .p-3 {padding: 30px;}
 
+.bg-black {background-color:var(--black);}
 .bg-green {background-color: green;}
 .bg-red {background-color: #990000;}
 .bg-white {background-color: var(--white); color: var(--dark);}
