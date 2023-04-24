@@ -77,6 +77,10 @@ details {position: relative; background-color: var(--transparent);}
 
 details ul { max-height: 350px; position: absolute; background-color: var(--black); overflow: auto; z-index: 9;}
 
+details li {align-items: flex-start;white-space: pre;}
+
+details a {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;max-width: 180px;}
+
 summary {
   font-weight: 700;
   outline: none;
@@ -172,17 +176,13 @@ input[type="search"] {min-width: 320px;}
 .justify-between {justify-content: space-between;}
 .align-start {align-items: start;}
 .align-center {align-items: center;}
+.flex-wrap {flex-wrap: wrap;}
 
 .grid-2 {display: grid; grid-template-columns: 1fr 1fr; gap: 10px;}
 .d-flex {display: flex;}
 .d-none {display: none !important;}
 
-.h-align {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+.h-align {display: flex;flex-direction: column;justify-content: center;align-items: center;}
 
 .mx-auto {margin: auto;}
 
