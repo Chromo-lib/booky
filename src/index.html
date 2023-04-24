@@ -12,21 +12,60 @@
 
 <body>
   <main class="w-100 h-100 h-align">
-    <form class="mb-2 d-flex br8" id="form-search">
-      <input type="search" class="br-0 bg-transparent" name="form-search" id="form-search" placeholder="search.." required>
+    <header class="w-100 d-flex align-center justify-between border-bottom mb-2">    
+      <div class="d-flex align-center">
+        <a class="mr-2" href="#default-apps" title="default applications">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </a>
   
-      <button type="submit" class="btn br-0 bg-transparent">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg>
-      </button>
-    </form>
+        <div id="default-apps" class="modalDialog">
+          <a href="#close" title="Close" class="close btn bg-red">X</a>
+          <ul class="bg-gray backdrop-blur br8"></ul>
+        </div>
+  
+        <a class="mr-2" href="#topsites" title="To visited websites">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
+          </svg>
+        </a>
+  
+        <div id="topsites" class="modalDialog">
+           <a href="#close" title="Close" class="close btn bg-red">X</a>
+           <ul class="bg-gray backdrop-blur br8"></ul>
+        </div>
+        
+        <div class="sidebar__toggle bg-nocolor border-0 mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+          </svg>
+        </div>   
+        
+        <h3 class="m-0 mr-2 border-left pl-2" id="date">Thu Feb 01 2022</h3>
+        <h3 class="m-0 ml-2 mr-2 border-left pl-2" id="time">10:15 AM (<small id="timezone"></small>)</h3>
+       </div>
+
+       <form class="d-flex" id="form-search">
+        <input type="search" class="w-100 br-0 bg-transparent" name="form-search" id="form-search" placeholder="search.." required>
+    
+        <button type="submit" class="btn br-0 bg-transparent">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </button>
+      </form>
+    </header>
+
+    <section class="d-flex"></section>
   
     <p></p>
   
     <div class="w-100 h-100 m-0 grid"></div>
   </main>
+
 
   <div class="modal">
     <button class="btn btn-close-modal bg-white">x</button>
@@ -52,11 +91,18 @@
   </div>
 
   <div class="h-100 sidebar pr-0">
-    <div>
-      
-    </div>
+    <div></div>
 
-    <div class="w-100 h-100 sidebar-content">
+    <div class="w-100 h-100 sidebar-content">      
+      <form class="d-flex mb-1" id="form-create-forlder">
+        <input class="w-100" type="text" name="folder" id="folder" placeholder="notes" required>
+        <button class="btn bg-green" type="submit">+</button>
+      </form>
+
+      <small>Create a bookmark sub folder under the parent folder</small>
+
+      <hr>
+
       <form id="form-change-bg">
         <div class="form-control mb-2">
           <label for="bg">Choose a background image</label>
@@ -147,44 +193,7 @@
     </div>
   </div>
 
-  <footer class="w-100 d-flex justify-between align-center">
-    <div class="d-flex align-center">
-      <a class="btn" href="#default-apps" title="default applications">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-        </svg>
-      </a>
-
-      <div id="default-apps" class="modalDialog">
-         <a href="#close" title="Close" class="close btn bg-red">X</a>
-         <ul class="bg-gray backdrop-blur br8"></ul>
-      </div>
-
-      <a class="btn" href="#topsites" title="To visited websites">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
-        </svg>
-      </a>
-
-      <div id="topsites" class="modalDialog">
-         <a href="#close" title="Close" class="close btn bg-red">X</a>
-         <ul class="bg-gray backdrop-blur br8"></ul>
-      </div>
-      
-      <button class="sidebar__toggle bg-nocolor border-0">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-          <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-        </svg>
-      </button>
-    </div>
- 
-     <div>
-        <small id="timezone"></small>
-        <h2 class="m-0" id="time">10:15 AM</h2>
-        <p class="m-0" id="date">Thu Feb 01 2022</p>
-     </div>
-  </footer>
+  <footer class="w-100 d-flex justify-between align-center"></footer>
 
   <script type="module" src="/main.ts" defer></script>
 </body>

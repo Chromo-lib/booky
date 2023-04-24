@@ -1,7 +1,7 @@
 {
   "name": "booky",
   "private": true,
-  "version": "2.0.5",
+  "version": "2.0.6",
   "type": "module",
   "scripts": {
     "dev": "NODE_ENV=dev vite build --watch",
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "muuri": "^0.9.5",
-    "staten": "^0.1.1"
+    "staten": "^0.1.1",
+    "web-animations-js": "^2.3.2"
   }
 }

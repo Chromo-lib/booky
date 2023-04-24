@@ -15,7 +15,7 @@ const timeZoneEL = document.getElementById('timezone')!;
 const btnDeleteBookmarkEL = document.getElementById('btn-delete-bk')! as HTMLButtonElement;
 const btnResetSettingsEL = document.getElementById('btn-reset-settings')! as HTMLButtonElement;
 const btnResetBgOptionsEL = document.getElementById('btn-reset-bgoptions')! as HTMLButtonElement;
-
+const formCreateFolder = document.getElementById('form-create-forlder')! as HTMLFormElement;
 
 export {
   modalEL,
@@ -30,5 +30,6 @@ export {
   formSettingsEL,
   btnResetSettingsEL,
   messageEL,
-  btnResetBgOptionsEL
+  btnResetBgOptionsEL,
+  formCreateFolder
 }
