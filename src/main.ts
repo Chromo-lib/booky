@@ -85,7 +85,7 @@ const onLoad = async () => {
 
         b.children?.forEach(v => {
           if(!v.children) ul.innerHTML += `<li class="d-flex align-center border-bottom">
-          <img class="mr-2 rounded" width="20" height="20" src="${faviconURL(v.url)}" alt="${v.title}" />  
+          <img class="mr-2 rounded" width="20" height="20" src="${faviconURL(v.url as string)}" alt="${v.title}" />  
           <a href="${v.url}" target="_blank">${v.title}</a>
           </li>`
         })
